@@ -1,0 +1,398 @@
+/* タブレット表示 */
+@media (max-width: 768px) {
+    .header-container {
+        flex-direction: column;
+        text-align: center;
+        gap: 1rem;
+    }
+    
+    .contact-info {
+        text-align: center;
+    }
+    
+    .step-indicator {
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+    
+    .step {
+        flex: none;
+        width: auto;
+        min-width: 80px;
+    }
+    
+    .step-number {
+        width: 35px;
+        height: 35px;
+        font-size: 0.9rem;
+    }
+    
+    .step-label {
+        font-size: 0.8rem;
+    }
+    
+    .calendar-grid {
+        gap: 4px;
+    }
+    
+    .calendar-day {
+        font-size: 0.9rem;
+        min-height: 40px;
+    }
+    
+    .time-slots {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+        gap: 0.8rem;
+    }
+    
+    .seat-options {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .guest-count-selector {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .count-controls {
+        order: 1;
+    }
+    
+    .count-label {
+        order: 2;
+        font-size: 1rem;
+    }
+}
+
+/* スマートフォン表示 */
+@media (max-width: 480px) {
+    .main-content {
+        padding: 0 0.5rem;
+        margin: 1rem auto;
+    }
+    
+    .header {
+        padding: 0.5rem 0;
+    }
+    
+    .header-container {
+        padding: 0 0.5rem;
+    }
+    
+    .logo-image {
+        height: 50px;
+        max-width: 150px;
+    }
+    
+    .contact-info {
+        font-size: 0.9rem;
+    }
+    
+    .address {
+        font-size: 0.8rem;
+    }
+    
+    .phone {
+        font-size: 1rem;
+    }
+    
+    .hours {
+        font-size: 0.75rem;
+    }
+    
+    .step-indicator {
+        margin-bottom: 2rem;
+        padding: 0 0.5rem;
+    }
+    
+    .step-indicator::before {
+        display: none;
+    }
+    
+    .step {
+        min-width: 60px;
+    }
+    
+    .step-number {
+        width: 30px;
+        height: 30px;
+        font-size: 0.8rem;
+    }
+    
+    .step-label {
+        font-size: 0.7rem;
+    }
+    
+    .step-title {
+        font-size: 1.2rem;
+        line-height: 1.3;
+    }
+    
+    .calendar-container {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .calendar-header {
+        margin-bottom: 1rem;
+    }
+    
+    .calendar-title {
+        font-size: 1.1rem;
+    }
+    
+    .calendar-nav {
+        width: 35px;
+        height: 35px;
+        font-size: 1rem;
+    }
+    
+    .calendar-grid {
+        gap: 2px;
+    }
+    
+    .calendar-day-header {
+        padding: 8px 4px;
+        font-size: 0.8rem;
+    }
+    
+    .calendar-day {
+        font-size: 0.8rem;
+        min-height: 35px;
+    }
+    
+    .time-slots {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+    }
+    
+    .time-slot {
+        padding: 0.8rem 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .seat-option {
+        padding: 1rem;
+    }
+    
+    .seat-type-name {
+        font-size: 1.1rem;
+    }
+    
+    .seat-description {
+        font-size: 0.9rem;
+    }
+    
+    .guest-count-selector {
+        gap: 0.8rem;
+    }
+    
+    .count-controls {
+        padding: 0.8rem;
+        gap: 0.8rem;
+    }
+    
+    .count-btn {
+        width: 45px;
+        height: 45px;
+        font-size: 1.3rem;
+    }
+    
+    .count-display {
+        font-size: 1.8rem;
+        min-width: 50px;
+    }
+    
+    .step-actions {
+        flex-direction: column;
+        gap: 0.8rem;
+    }
+    
+    .step-actions .back-btn {
+        max-width: none;
+        order: 2;
+    }
+    
+    .step-actions .next-btn,
+    .step-actions .submit-btn {
+        order: 1;
+    }
+    
+    .form-group {
+        margin-bottom: 1.2rem;
+    }
+    
+    .form-group input,
+    .form-group textarea {
+        padding: 10px;
+        font-size: 1rem;
+    }
+    
+    .reservation-summary,
+    .reservation-confirm {
+        padding: 1rem;
+        margin-bottom: 1rem;
+    }
+    
+    .summary-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.25rem;
+        padding: 0.8rem 0;
+    }
+    
+    .completion-message {
+        padding: 1rem;
+    }
+    
+    .completion-icon {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .completion-message h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+    
+    .reservation-number {
+        font-size: 1rem;
+        padding: 0.8rem;
+        margin-bottom: 1rem;
+    }
+    
+    .completion-details {
+        padding: 1rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .error-content {
+        padding: 1.5rem;
+        margin: 0.5rem;
+    }
+    
+    .error-message {
+        font-size: 1rem;
+    }
+}
+
+/* 極小画面対応 */
+@media (max-width: 320px) {
+    .main-content {
+        margin: 0.5rem auto;
+    }
+    
+    .step-title {
+        font-size: 1.1rem;
+    }
+    
+    .time-slots {
+        grid-template-columns: 1fr;
+    }
+    
+    .calendar-day {
+        min-height: 30px;
+        font-size: 0.75rem;
+    }
+    
+    .count-btn {
+        width: 40px;
+        height: 40px;
+        font-size: 1.2rem;
+    }
+    
+    .count-display {
+        font-size: 1.6rem;
+        min-width: 45px;
+    }
+}
+
+/* 横向きスマートフォン */
+@media (max-width: 768px) and (orientation: landscape) {
+    .step-indicator {
+        margin-bottom: 1.5rem;
+    }
+    
+    .calendar-container {
+        margin-bottom: 1.5rem;
+    }
+    
+    .guest-count-selector {
+        flex-direction: row;
+        gap: 1.5rem;
+    }
+}
+
+/* ダークモード対応 */
+@media (prefers-color-scheme: dark) {
+    /* ダークモードの場合は白背景を維持 */
+    body {
+        background-color: #ffffff;
+        color: #333;
+    }
+}
+
+/* プリント用 */
+@media print {
+    .header {
+        position: static;
+        border-bottom: 2px solid #182c77;
+    }
+    
+    .step-indicator {
+        display: none;
+    }
+    
+    .step-content:not(.active) {
+        display: none;
+    }
+    
+    .step-actions {
+        display: none;
+    }
+    
+    .error-modal,
+    .loading-overlay {
+        display: none !important;
+    }
+    
+    * {
+        -webkit-print-color-adjust: exact;
+        color-adjust: exact;
+    }
+}
+
+/* アクセシビリティ */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    .step-content {
+        animation: none;
+    }
+}
+
+/* 高コントラスト */
+@media (prefers-contrast: high) {
+    .calendar-day,
+    .time-slot,
+    .seat-option {
+        border-width: 3px;
+    }
+    
+    .step-number {
+        border: 2px solid #182c77;
+    }
+    
+    .next-btn,
+    .submit-btn {
+        border: 2px solid #182c77;
+    }
+}
