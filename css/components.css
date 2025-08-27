@@ -1,0 +1,423 @@
+/* 人数選択 */
+.guest-count-selector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.count-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background-color: #f8f9fa;
+    padding: 1rem;
+    border-radius: 12px;
+    border: 2px solid #e9ecef;
+}
+
+.count-btn {
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50%;
+    background-color: #182c77;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.count-btn:hover:not(:disabled) {
+    background-color: #2a3d87;
+    transform: scale(1.05);
+}
+
+.count-btn:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.count-display {
+    font-size: 2rem;
+    font-weight: bold;
+    color: #182c77;
+    min-width: 60px;
+    text-align: center;
+}
+
+.count-label {
+    font-size: 1.2rem;
+    color: #666;
+}
+
+/* カレンダー */
+.calendar-container {
+    background-color: #ffffff;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+}
+
+.calendar-nav {
+    width: 40px;
+    height: 40px;
+    border: none;
+    border-radius: 8px;
+    background-color: #f8f9fa;
+    color: #182c77;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.calendar-nav:hover {
+    background-color: #e9ecef;
+    transform: scale(1.05);
+}
+
+.calendar-title {
+    font-size: 1.3rem;
+    color: #182c77;
+    font-weight: 600;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 8px;
+}
+
+.calendar-day-header {
+    text-align: center;
+    padding: 12px 8px;
+    font-weight: 600;
+    color: #666;
+    font-size: 0.9rem;
+}
+
+.calendar-day {
+    aspect-ratio: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid transparent;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+    position: relative;
+    background-color: #f8f9fa;
+}
+
+.calendar-day:hover:not(.disabled):not(.past) {
+    background-color: #e3f2fd;
+    border-color: #182c77;
+    transform: scale(1.05);
+}
+
+.calendar-day.selected {
+    background-color: #182c77;
+    color: white;
+    border-color: #182c77;
+}
+
+.calendar-day.disabled,
+.calendar-day.past {
+    background-color: #f1f3f4;
+    color: #9e9e9e;
+    cursor: not-allowed;
+}
+
+.calendar-day.holiday {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+.calendar-day.today {
+    border-color: #ff9800;
+    font-weight: bold;
+}
+
+/* 時間スロット */
+.time-slots {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.time-slot {
+    padding: 1rem;
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    background-color: #f8f9fa;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    font-weight: 500;
+}
+
+.time-slot:hover:not(.disabled) {
+    background-color: #e3f2fd;
+    border-color: #182c77;
+    transform: translateY(-2px);
+}
+
+.time-slot.selected {
+    background-color: #182c77;
+    color: white;
+    border-color: #182c77;
+}
+
+.time-slot.disabled {
+    background-color: #f1f3f4;
+    color: #9e9e9e;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* 席オプション */
+.seat-options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.seat-option {
+    border: 2px solid #e9ecef;
+    border-radius: 12px;
+    padding: 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    background-color: #ffffff;
+}
+
+.seat-option:hover:not(.disabled) {
+    border-color: #182c77;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(24, 44, 119, 0.15);
+}
+
+.seat-option.selected {
+    border-color: #182c77;
+    background-color: #f8f9ff;
+}
+
+.seat-option.disabled {
+    background-color: #f1f3f4;
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.seat-type-name {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #182c77;
+    margin-bottom: 0.5rem;
+}
+
+.seat-description {
+    color: #666;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    margin-bottom: 0.5rem;
+}
+
+.seat-capacity {
+    color: #888;
+    font-size: 0.9rem;
+}
+
+.seat-availability {
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+}
+
+.seat-availability.available {
+    background-color: #e8f5e8;
+    color: #2e7d32;
+}
+
+.seat-availability.limited {
+    background-color: #fff3e0;
+    color: #f57c00;
+}
+
+.seat-availability.full {
+    background-color: #ffebee;
+    color: #d32f2f;
+}
+
+/* 予約サマリー */
+.reservation-summary,
+.reservation-confirm {
+    background-color: #f8f9ff;
+    border: 2px solid #182c77;
+    border-radius: 12px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.summary-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #182c77;
+    margin-bottom: 1rem;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #e3f2fd;
+}
+
+.summary-item:last-child {
+    border-bottom: none;
+}
+
+.summary-label {
+    color: #666;
+    font-weight: 500;
+}
+
+.summary-value {
+    color: #182c77;
+    font-weight: 600;
+}
+
+/* 完了画面 */
+.completion-message {
+    text-align: center;
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.completion-icon {
+    width: 80px;
+    height: 80px;
+    background-color: #4caf50;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 2rem;
+    font-size: 2.5rem;
+    color: white;
+}
+
+.completion-message h2 {
+    color: #182c77;
+    margin-bottom: 1.5rem;
+    font-size: 1.8rem;
+}
+
+.reservation-number {
+    background-color: #f8f9ff;
+    border: 2px solid #182c77;
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #182c77;
+}
+
+.completion-details {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    text-align: left;
+}
+
+.completion-notes {
+    color: #666;
+    margin-bottom: 2rem;
+    line-height: 1.6;
+}
+
+.check-reservation-btn {
+    background-color: #f8f9fa;
+    color: #182c77;
+    border: 2px solid #182c77;
+    padding: 12px 24px;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 500;
+    transition: all 0.2s ease;
+}
+
+.check-reservation-btn:hover {
+    background-color: #182c77;
+    color: white;
+}
+
+/* 時間帯セクション */
+.time-section {
+    margin-bottom: 2rem;
+}
+
+.time-section-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #182c77;
+    margin-bottom: 1rem;
+    padding-left: 0.5rem;
+    border-left: 4px solid #182c77;
+}
+
+.time-section .time-slots {
+    margin-bottom: 1rem;
+}
+
+/* 無効状態のメッセージ */
+.no-availability {
+    text-align: center;
+    color: #666;
+    font-style: italic;
+    padding: 2rem;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    margin: 1rem 0;
+}
+
+/* アニメーション */
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.slide-in {
+    animation: slideInUp 0.3s ease;
+}
