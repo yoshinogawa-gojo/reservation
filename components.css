@@ -2,13 +2,12 @@
 
 /* 店舗情報 */
 .shop-info {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .shop-logo {
@@ -31,7 +30,7 @@
 
 .shop-subtitle {
     font-size: 16px;
-    color: #eeddcc;
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
@@ -39,13 +38,13 @@
 
 .shop-catchphrase {
     font-size: 15px;
-    color: #3b372b;
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
     padding: 15px;
-    background: #eeddcc;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(44, 62, 80, 0.02));
     border-radius: 10px;
-    border: 2px solid #eeddcc;
+    border: 2px solid #2c3e50;
     font-weight: 600;
 }
 
@@ -53,19 +52,18 @@
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #eeddcc;
+    color: #2c3e50;
     text-align: center;
 }
 
 /* 重要なお知らせ */
 .important-notices {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .notice-content {
@@ -79,10 +77,9 @@
     align-items: flex-start;
     gap: 12px;
     padding: 15px;
-    background: rgba(237, 221, 204, 0.2);
-    backdrop-filter: blur(5px);
+    background: rgba(44, 62, 80, 0.05);
     border-radius: 10px;
-    border-left: 4px solid #eeddcc;
+    border-left: 4px solid #2c3e50;
 }
 
 .notice-icon {
@@ -92,20 +89,19 @@
 }
 
 .notice-text {
-    color: #eeddcc;
+    color: #2c3e50;
     line-height: 1.6;
     font-size: 14px;
 }
 
 /* 営業時間 */
 .business-hours {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .hours-grid {
@@ -119,46 +115,40 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 15px;
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
+    background: #f8f9fa;
     border-radius: 10px;
-    border-left: 4px solid #eeddcc;
+    border-left: 4px solid #2c3e50;
 }
 
 .hours-item.weekend {
-    border-left-color: #eeddcc;
-    background: rgba(237, 221, 204, 0.2);
+    border-left-color: #17a2b8;
+    background: rgba(23, 162, 184, 0.1);
 }
 
 .day-label {
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     font-size: 15px;
 }
 
 .time-value {
-    color: #eeddcc;
+    color: #2c3e50;
     font-weight: bold;
     font-size: 15px;
 }
 
 .hours-item.weekend .time-value {
-    color: #3b372b;
-}
-
-.hours-item.weekend .day-label {
-    color: #3b372b;
+    color: #17a2b8;
 }
 
 /* アクセス情報 */
 .access-info {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .access-content {
@@ -169,21 +159,20 @@
 
 .access-section {
     padding: 15px;
-    background: rgba(237, 221, 204, 0.2);
-    backdrop-filter: blur(5px);
+    background: rgba(44, 62, 80, 0.05);
     border-radius: 10px;
-    border-left: 4px solid #eeddcc;
+    border-left: 4px solid #2c3e50;
 }
 
 .access-subtitle {
     font-size: 16px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 10px;
 }
 
 .access-text {
-    color: #eeddcc;
+    color: #2c3e50;
     line-height: 1.6;
     font-size: 14px;
     margin-bottom: 0;
@@ -192,21 +181,20 @@
 .navigation-note {
     margin-top: 15px;
     padding: 12px;
-    background: rgba(237, 221, 204, 0.3);
-    backdrop-filter: blur(5px);
+    background: rgba(44, 62, 80, 0.1);
     border-radius: 8px;
-    border: 1px solid #eeddcc;
+    border: 1px solid rgba(44, 62, 80, 0.3);
 }
 
 .note-title {
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 5px;
     font-size: 13px;
 }
 
 .note-text {
-    color: #eeddcc;
+    color: #2c3e50;
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 0;
@@ -218,10 +206,9 @@
     justify-content: center;
     gap: 10px;
     padding: 15px;
-    background: rgba(237, 221, 204, 0.3);
-    backdrop-filter: blur(5px);
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(40, 167, 69, 0.05));
     border-radius: 10px;
-    border: 2px solid #eeddcc;
+    border: 2px solid #28a745;
 }
 
 .parking-icon {
@@ -229,7 +216,7 @@
 }
 
 .parking-text {
-    color: #eeddcc;
+    color: #28a745;
     font-weight: bold;
     font-size: 16px;
 }
@@ -237,10 +224,66 @@
 /* ボタン共通スタイル */
 .reservation-button,
 .select-button,
-.next-button,
+.next-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 18px 35px;
+    width: 100%;
+    margin-top: 25px;
+    display: none;
+}
+
+.next-button.show {
+    display: block;
+}
+
+.next-button:hover,
+.next-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.back-button {
+    background: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+    padding: 15px 25px;
+    width: 48%;
+}
+
+.back-button:hover,
+.back-button:focus {
+    background: #2c3e50;
+    color: #ffffff;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.confirm-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 15px 25px;
+    border: none;
+    width: 48%;
+}
+
+.confirm-button:hover,
+.confirm-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 4%;
+    box-sizing: border-box;
+},
 .confirm-button,
-.back-button,
-.add-companion-button {
+.back-button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -252,8 +295,8 @@
 
 .reservation-button {
     display: block;
-    background: #eeddcc;
-    color: #3b372b;
+    background: #2c3e50;
+    color: #ffffff;
     padding: 15px 25px;
     border-radius: 25px;
     text-decoration: none;
@@ -268,7 +311,7 @@
 }
 
 .reservation-button:hover {
-    background: #dcc8a8;
+    background: #34495e;
 }
 
 /* メイン予約ボタン */
@@ -278,8 +321,8 @@
 }
 
 .main-reservation-button {
-    background: linear-gradient(135deg, #eeddcc, #dcc8a8);
-    color: #3b372b;
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ffffff;
     border: none;
     padding: 20px 40px;
     border-radius: 50px;
@@ -287,7 +330,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(237, 221, 204, 0.4);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -299,8 +342,8 @@
 
 .main-reservation-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.6);
-    background: linear-gradient(135deg, #dcc8a8, #c9b085);
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+    background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
 .button-icon {
@@ -321,8 +364,8 @@
 }
 
 .select-button {
-    background: #eeddcc;
-    color: #3b372b;
+    background: #2c3e50;
+    color: #ffffff;
     padding: 15px 35px;
     width: 100%;
     margin-top: 15px;
@@ -330,83 +373,9 @@
 
 .select-button:hover,
 .select-button:focus {
-    background: #dcc8a8;
-    outline: 2px solid #eeddcc;
+    background: #34495e;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
-.next-button {
-    background: #eeddcc;
-    color: #3b372b;
-    padding: 18px 35px;
-    width: 100%;
-    margin-top: 25px;
-    display: none;
-}
-
-.next-button.show {
-    display: block;
-}
-
-.next-button:hover,
-.next-button:focus {
-    background: #dcc8a8;
-    outline: 2px solid #eeddcc;
-    outline-offset: 2px;
-}
-
-.back-button {
-    background: transparent;
-    color: #eeddcc;
-    border: 2px solid #eeddcc;
-    padding: 15px 25px;
-    width: 48%;
-}
-
-.back-button:hover,
-.back-button:focus {
-    background: #eeddcc;
-    color: #3b372b;
-    outline: 2px solid #eeddcc;
-    outline-offset: 2px;
-}
-
-.confirm-button {
-    background: #eeddcc;
-    color: #3b372b;
-    padding: 15px 25px;
-    border: none;
-    width: 48%;
-}
-
-.confirm-button:hover,
-.confirm-button:focus {
-    background: #dcc8a8;
-    outline: 2px solid #eeddcc;
-    outline-offset: 2px;
-}
-
-.add-companion-button {
-    background: transparent;
-    color: #eeddcc;
-    border: 2px solid #eeddcc;
-    padding: 15px 25px;
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-.add-companion-button:hover,
-.add-companion-button:focus {
-    background: #eeddcc;
-    color: #3b372b;
-    outline: 2px solid #eeddcc;
-    outline-offset: 2px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    gap: 4%;
-    box-sizing: border-box;
-}
+.next-button
