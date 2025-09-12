@@ -1,31 +1,54 @@
-// Hair Works天 予約サイト - 設定ファイル
+// レストランよしの川 予約サイト - 設定ファイル
 
 // Cloud Run API設定
 const API_BASE_URL = 'https://yoshinogawa-reservation-7tlyu7d2jq-an.a.run.app/api';
 
 // アプリケーション設定
 const APP_CONFIG = {
-    maxCompanions: 1, // 最大同行者数を1名に変更
-    minAdvanceBookingDays: 1, // 最小予約日数（1日後=翌日から予約可能に変更）
+    maxGuests: 8, // 最大人数
+    minAdvanceBookingDays: 1, // 最小予約日数（1日後=翌日から予約可能）
     maxAdvanceBookingDays: 30, // 最大予約日数（30日後まで予約可能）
     cancelDeadlineHours: 1,
     reservationCutoffTime: '23:59',
     businessHours: {
-        weekday: { start: '10:00', end: '19:00' },
-        weekend: { start: '09:00', end: '18:00' }
+        weekday: { start: '11:00', end: '15:00' },
+        weekend: { 
+            lunch: { start: '11:00', end: '15:00' },
+            dinner: { start: '17:00', end: '20:00' }
+        }
     },
-    // 平日・土日祝で分けた時間スロット
+    // 30分単位の時間スロット
     timeSlots: {
-        weekday: ['10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00', '18:00'],
-        weekend: ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00', '17:00']
+        weekday: generateTimeSlots('11:00', '15:00', 30),
+        weekend: [
+            ...generateTimeSlots('11:00', '15:00', 30),
+            ...generateTimeSlots('17:00', '20:00', 30)
+        ]
     },
     shopInfo: {
-        name: 'Hair Works天',
+        name: 'レストランよしの川',
         address: '〒420-0817 静岡県静岡市葵区東静岡１丁目１−５７',
         phone: null, // 電話予約は受け付けていない
         parkingSpaces: 240
     }
 };
+
+// 30分単位で時間スロットを生成する関数
+function generateTimeSlots(startTime, endTime, intervalMinutes) {
+    const slots = [];
+    const start = new Date(`2000-01-01 ${startTime}`);
+    const end = new Date(`2000-01-01 ${endTime}`);
+    
+    let current = new Date(start);
+    while (current < end) {
+        const hours = String(current.getHours()).padStart(2, '0');
+        const minutes = String(current.getMinutes()).padStart(2, '0');
+        slots.push(`${hours}:${minutes}`);
+        current.setMinutes(current.getMinutes() + intervalMinutes);
+    }
+    
+    return slots;
+}
 
 // 日付が平日か土日祝かを判定する関数
 function isWeekendOrHoliday(dateString) {
@@ -45,13 +68,12 @@ function isWeekendOrHoliday(dateString) {
     return false;
 }
 
-// 指定日付の時間スロットを取得する関数（翌日以降のみ）
+// 指定日付の時間スロットを取得する関数
 function getTimeSlotsForDate(dateString) {
     const baseSlots = isWeekendOrHoliday(dateString) 
         ? APP_CONFIG.timeSlots.weekend 
         : APP_CONFIG.timeSlots.weekday;
     
-    // 当日は予約不可なので、常に全ての時間スロットを返す
     return baseSlots;
 }
 
@@ -108,13 +130,13 @@ function isValidReservationDate(dateString) {
 
 // グローバル変数の初期化
 let currentPage = 'top-page';
-let selectedMenu = null;
+let selectedGuestCount = null; // 選択された人数
+let selectedSeat = null; // 選択された座席
 let selectedDate = null;
 let selectedTime = null;
 let currentMonth = new Date().getMonth();
 let currentYear = new Date().getFullYear();
-let companions = [];
-let menus = {};
+let menus = {}; // 座席情報として使用
 let holidays = [];
 let reservations = [];
 let notices = [];
@@ -128,7 +150,7 @@ const DAY_HEADERS = ['日', '月', '火', '水', '木', '金', '土'];
 
 // エラーメッセージ
 const ERROR_MESSAGES = {
-    menuLoadFailed: 'メニューの読み込みに失敗しました',
+    seatLoadFailed: '座席情報の読み込みに失敗しました',
     noticeLoadFailed: '重要なお知らせの読み込みに失敗しました',
     holidayLoadFailed: '休業日データの取得に失敗しました',
     reservationLoadFailed: '予約データの読み込みに失敗しました',
