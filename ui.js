@@ -141,8 +141,9 @@ function displaySeats() {
         seatItem.className = 'seat-item';
         seatItem.onclick = () => selectSeat(seatName, seatData);
         
-        // 座席の収容人数を表示（worktimeを人数として使用）
-        const capacity = seatData.worktime || 4;
+        // 座席の収容人数を表示（capacityまたはworktimeを使用）
+        const capacity = seatData.capacity || seatData.worktime || 4;
+        console.log(`座席 ${seatName} の収容人数: ${capacity} (capacity: ${seatData.capacity}, worktime: ${seatData.worktime})`);
         
         seatItem.innerHTML = `
             <div class="seat-header">
