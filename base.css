@@ -11,11 +11,11 @@
 
 body {
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
-    background: linear-gradient(135deg, #f5f5f5, #eaeaea);
-    color: #666688;
+    background: linear-gradient(135deg, #3b372b, #2d2a22);
+    color: #eeddcc;
     line-height: 1.6;
     min-height: 100vh;
-    color-scheme: light;
+    color-scheme: dark;
     overflow-x: hidden;
 }
 
@@ -25,11 +25,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: #ffffff;
+    background: #3b372b;
     z-index: 1000;
     padding: 5px 0;
-    box-shadow: 0 2px 20px rgba(102, 102, 136, 0.15);
-    border-bottom: 2px solid #666688;
+    box-shadow: 0 2px 20px rgba(237, 221, 204, 0.15);
+    border-bottom: 2px solid #eeddcc;
 }
 
 .header-content {
@@ -55,7 +55,7 @@ body {
     justify-content: center;
     font-size: 14px;
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     position: relative;
     overflow: visible;
     flex-shrink: 0;
@@ -82,7 +82,7 @@ body {
     transform: translate(-50%, -50%);
     white-space: nowrap;
     display: block;
-    color: #666688;
+    color: #eeddcc;
     font-size: 14px;
     font-weight: bold;
 }
@@ -93,14 +93,14 @@ body {
 
 .header-logo:hover,
 .header-logo:focus {
-    outline: 2px solid #666688;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
 /* ヘッダーマップボタン */
 .header-map-button {
-    background: #666688;
-    color: #ffffff;
+    background: #eeddcc;
+    color: #3b372b;
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
@@ -119,8 +119,8 @@ body {
 
 .header-map-button:hover,
 .header-map-button:focus {
-    background: #5a5a7a;
-    outline: 2px solid #666688;
+    background: #dcc8a8;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
@@ -137,16 +137,17 @@ body {
     text-align: center;
     margin-bottom: 30px;
     padding: 25px;
-    background: #ffffff;
+    background: rgba(237, 221, 204, 0.1);
+    backdrop-filter: blur(10px);
     border-radius: 15px;
-    border: 2px solid #EEDDCC;
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.15);
+    border: 2px solid #eeddcc;
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
 }
 
 .page-title {
     font-size: 24px;
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     margin-bottom: 10px;
 }
 
@@ -163,7 +164,7 @@ body {
 .section-title {
     font-size: 20px;
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -172,7 +173,7 @@ body {
 .loading {
     text-align: center;
     padding: 30px;
-    color: #ffffff;
+    color: #eeddcc;
     font-size: 16px;
 }
 
@@ -189,20 +190,22 @@ body {
 }
 
 .error {
-    background: #fff5f5;
-    color: #e53e3e;
-    border: 2px solid #feb2b2;
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+    border: 2px solid #dc3545;
     padding: 20px;
     border-radius: 8px;
     margin: 25px 0;
     text-align: center;
+    backdrop-filter: blur(5px);
 }
 
 .warning {
-    background: #fffbeb;
-    color: #d69e2e;
-    border: 2px solid #f6e05e;
+    background: rgba(255, 193, 7, 0.1);
+    color: #ffc107;
+    border: 2px solid #ffc107;
     padding: 16px;
     border-radius: 6px;
     margin: 16px 0;
+    backdrop-filter: blur(5px);
 }
