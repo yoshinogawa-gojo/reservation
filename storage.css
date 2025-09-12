@@ -98,7 +98,7 @@
 .save-checkmark {
     height: 20px;
     width: 20px;
-    background-color: rgba(59, 55, 43, 0.3);
+    background-color: rgba(26, 35, 126, 0.3);
     backdrop-filter: blur(5px);
     border: 2px solid #4CAF50;
     border-radius: 4px;
@@ -108,7 +108,8 @@
 }
 
 .save-info-checkbox:hover input ~ .save-checkmark {
-    background-color: rgba(59, 55, 43, 0.5);
+    background-color: rgba(26, 35, 126, 0.5);
+});
 }
 
 .save-info-checkbox input:checked ~ .save-checkmark {
@@ -141,7 +142,7 @@
     line-height: 1.5;
     margin-top: 10px;
     padding: 10px;
-    background: rgba(59, 55, 43, 0.3);
+    background: rgba(26, 35, 126, 0.3);
     backdrop-filter: blur(5px);
     border-radius: 6px;
     border-left: 3px solid #4CAF50;
