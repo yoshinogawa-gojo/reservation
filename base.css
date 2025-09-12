@@ -1,4 +1,4 @@
-/* Hair Works天 予約サイト - 基本スタイル */
+/* レストランよしの川 予約サイト - 基本スタイル */
 
 /* ベースリセット */
 * {
@@ -11,11 +11,11 @@
 
 body {
     font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
-    background: #0a1628;
-    color: #ffffff;
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+    color: #2c3e50;
     line-height: 1.6;
     min-height: 100vh;
-    color-scheme: dark;
+    color-scheme: light;
     overflow-x: hidden;
 }
 
@@ -25,11 +25,11 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    background: #0f1a2e;
+    background: #ffffff;
     z-index: 1000;
     padding: 5px 0;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-    border-bottom: 1px solid #ff8c42;
+    box-shadow: 0 2px 20px rgba(44, 62, 80, 0.1);
+    border-bottom: 2px solid #2c3e50;
 }
 
 .header-content {
@@ -55,7 +55,7 @@ body {
     justify-content: center;
     font-size: 14px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     position: relative;
     overflow: visible;
     flex-shrink: 0;
@@ -82,7 +82,7 @@ body {
     transform: translate(-50%, -50%);
     white-space: nowrap;
     display: block;
-    color: #ffffff;
+    color: #2c3e50;
     font-size: 14px;
     font-weight: bold;
 }
@@ -93,14 +93,14 @@ body {
 
 .header-logo:hover,
 .header-logo:focus {
-    outline: 2px solid #ff8c42;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
 /* ヘッダーマップボタン */
 .header-map-button {
-    background: #ff8c42;
-    color: #0a1628;
+    background: #2c3e50;
+    color: #ffffff;
     border: none;
     padding: 8px 16px;
     border-radius: 20px;
@@ -119,8 +119,8 @@ body {
 
 .header-map-button:hover,
 .header-map-button:focus {
-    background: #e67a35;
-    outline: 2px solid #ff8c42;
+    background: #34495e;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
@@ -137,16 +137,16 @@ body {
     text-align: center;
     margin-bottom: 30px;
     padding: 25px;
-    background: #1a2a42;
-    border-radius: 10px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    background: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .page-title {
     font-size: 24px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     margin-bottom: 10px;
 }
 
@@ -163,7 +163,7 @@ body {
 .section-title {
     font-size: 20px;
     font-weight: bold;
-    color: #ff8c42;
+    color: #2c3e50;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -172,7 +172,7 @@ body {
 .loading {
     text-align: center;
     padding: 30px;
-    color: #ffffff;
+    color: #2c3e50;
     font-size: 16px;
 }
 
@@ -189,9 +189,9 @@ body {
 }
 
 .error {
-    background: #2a1f1f;
-    color: #ff6b6b;
-    border: 2px solid #ff4757;
+    background: #fff5f5;
+    color: #e53e3e;
+    border: 2px solid #feb2b2;
     padding: 20px;
     border-radius: 8px;
     margin: 25px 0;
@@ -199,9 +199,9 @@ body {
 }
 
 .warning {
-    background: #2a2318;
-    color: #ffa726;
-    border: 2px solid #ff9800;
+    background: #fffbeb;
+    color: #d69e2e;
+    border: 2px solid #f6e05e;
     padding: 16px;
     border-radius: 6px;
     margin: 16px 0;
