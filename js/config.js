@@ -1,7 +1,7 @@
 // 予約システム設定
 const CONFIG = {
     // API設定
-    API_BASE_URL: 'https://your-cloud-run-url.run.app/api',
+    API_BASE_URL: 'https://restaurant-reservation-7tlyu7d2jq-an.a.run.app/api',
     
     // 予約設定
     MAX_GUESTS: 8,
