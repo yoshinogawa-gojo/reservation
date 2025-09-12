@@ -1,139 +1,129 @@
-/* Hair Works天 予約サイト - ページ固有のスタイル */
+/* レストランよしの川 予約サイト - ページ固有のスタイル */
 
-/* メニューセクション */
-.menu-section {
+/* 人数選択セクション */
+.guest-count-section {
     margin-bottom: 30px;
 }
 
-.menu-grid {
+.guest-count-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 15px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
+}
+
+.guest-count-item {
+    background: #f8f9fa;
+    border-radius: 10px;
+    padding: 20px 15px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border: 2px solid transparent;
+    text-align: center;
+    min-height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.guest-count-item:hover {
+    background: #e9ecef;
+    border-color: #2c3e50;
+}
+
+.guest-count-item.selected {
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
+}
+
+.guest-count-number {
+    font-size: 24px;
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 5px;
+}
+
+.guest-count-label {
+    font-size: 14px;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+/* 座席選択セクション */
+.seat-section {
+    margin-bottom: 30px;
+}
+
+.seat-grid {
     display: flex;
     flex-direction: column;
     gap: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border-radius: 15px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
-.menu-item {
-    background: #1a2a42;
+.seat-item {
+    background: #f8f9fa;
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 2px solid transparent;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.menu-item:hover {
-    background: #243552;
-    border-color: #ff8c42;
+.seat-item:hover {
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
-.menu-item.selected {
-    border-color: #ff8c42;
-    background: #243552;
+.seat-item.selected {
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
 }
 
-.menu-header {
+.seat-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 15px;
-    box-sizing: border-box;
+    margin-bottom: 10px;
 }
 
-.menu-name {
+.seat-name {
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
 }
 
-.menu-price {
-    font-size: 16px;
-    font-weight: bold;
-    color: #ff8c42;
-    background: rgba(255, 140, 66, 0.1);
-    padding: 8px 15px;
+.seat-capacity {
+    font-size: 14px;
+    color: #6c757d;
+    background: rgba(44, 62, 80, 0.1);
+    padding: 4px 8px;
     border-radius: 15px;
-    border: 1px solid #ff8c42;
 }
 
-.menu-details {
-    display: none;
-    margin-top: 20px;
-    padding-top: 20px;
-    border-top: 1px solid #ff8c42;
-}
-
-.menu-details.show {
-    display: block;
-    animation: fadeIn 0.2s ease;
-}
-
-@keyframes fadeIn {
-    from { 
-        opacity: 0; 
-        transform: translateY(-5px);
-    }
-    to { 
-        opacity: 1; 
-        transform: translateY(0);
-    }
-}
-
-.menu-description {
-    color: #ffffff;
-    margin-bottom: 15px;
+.seat-description {
+    color: #2c3e50;
     font-size: 14px;
-    line-height: 1.7;
-}
-
-.menu-worktime {
-    color: #ff8c42;
-    font-weight: bold;
-    margin-bottom: 20px;
-    font-size: 14px;
-}
-
-.reservation-notes {
-    background: rgba(255, 140, 66, 0.1);
-    padding: 18px;
-    border-radius: 8px;
-    margin-bottom: 20px;
-    border-left: 4px solid #ff8c42;
-}
-
-.reservation-notes h4 {
-    color: #ff8c42;
-    font-size: 16px;
-    margin-bottom: 12px;
-}
-
-.reservation-notes ul {
-    list-style: none;
-    color: #ffffff;
-}
-
-.reservation-notes li {
-    margin-bottom: 8px;
-    padding-left: 20px;
-    position: relative;
     line-height: 1.5;
-}
-
-.reservation-notes li:before {
-    content: "•";
-    color: #ff8c42;
-    position: absolute;
-    left: 0;
-    font-size: 14px;
 }
 
 /* カレンダー */
 .calendar-container {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
     overflow: hidden;
 }
 
@@ -146,8 +136,8 @@
 }
 
 .calendar-nav {
-    background: #ff8c42;
-    color: #0a1628;
+    background: #2c3e50;
+    color: #ffffff;
     border: none;
     padding: 10px 14px;
     border-radius: 50%;
@@ -162,15 +152,15 @@
 
 .calendar-nav:hover,
 .calendar-nav:focus {
-    background: #e67a35;
-    outline: 2px solid #ff8c42;
+    background: #34495e;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
 .month-year {
     font-size: 18px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     text-align: center;
     flex-grow: 1;
 }
@@ -194,63 +184,44 @@
 .calendar-day {
     aspect-ratio: 1;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    border-radius: 6px;
-    font-size: 13px;
+    border-radius: 8px;
+    font-size: 14px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: #243552;
-    color: #ffffff;
+    background: #f8f9fa;
+    color: #2c3e50;
     border: 1px solid transparent;
     min-height: 36px;
     min-width: 36px;
     box-sizing: border-box;
     width: 100%;
-    padding: 2px;
-}
-
-.calendar-day-number {
-    font-size: 13px;
-    font-weight: 500;
-}
-
-.calendar-day-staff {
-    font-size: 8px;
-    color: #ff8c42;
-    font-weight: bold;
-    margin-top: 1px;
-    line-height: 1;
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-    max-width: 100%;
 }
 
 .calendar-day:hover {
-    background: #2a3f5f;
-    border-color: #ff8c42;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .calendar-day.selected {
-    background: #ff8c42;
-    color: #0a1628;
+    background: #2c3e50;
+    color: #ffffff;
     font-weight: bold;
-    border-color: #ff8c42;
+    border-color: #2c3e50;
 }
 
 .calendar-day.disabled {
-    background: #0f1a2e;
-    color: #666;
+    background: #e9ecef;
+    color: #adb5bd;
     cursor: not-allowed;
-    border-color: #333;
+    border-color: #dee2e6;
 }
 
 .calendar-day.holiday {
-    background: #0f1a2e;
-    color: #666;
+    background: #e9ecef;
+    color: #adb5bd;
     position: relative;
 }
 
@@ -260,23 +231,23 @@
     bottom: 1px;
     right: 1px;
     font-size: 7px;
-    color: #ff4757;
+    color: #dc3545;
     font-weight: bold;
 }
 
 .calendar-day.disabled:hover {
     transform: none;
-    border-color: #333;
+    border-color: #dee2e6;
 }
 
 /* 時間スロット */
 .time-slots-container {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
     display: none;
 }
 
@@ -285,7 +256,7 @@
 }
 
 .time-selection-title {
-    color: #ffffff;
+    color: #2c3e50;
     margin-bottom: 15px;
     text-align: center;
     font-size: 18px;
@@ -293,33 +264,23 @@
     line-height: 1.4;
 }
 
-/* スタッフ表示付きタイトルのスタイル */
-.time-selection-title.with-staff {
-    background: linear-gradient(135deg, rgba(255, 140, 66, 0.1), rgba(255, 140, 66, 0.05));
-    border: 2px solid #ff8c42;
-    border-radius: 10px;
-    padding: 15px;
-    margin-bottom: 20px;
-    position: relative;
-}
-
 .time-slots {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 10px;
     width: 100%;
     box-sizing: border-box;
 }
 
 .time-slot {
-    background: #243552;
+    background: #f8f9fa;
     padding: 12px;
-    border-radius: 8px;
+    border-radius: 10px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 2px solid transparent;
-    color: #ffffff;
+    color: #2c3e50;
     font-weight: 500;
     min-height: 44px;
     display: flex;
@@ -330,31 +291,32 @@
 }
 
 .time-slot:hover {
-    background: #2a3f5f;
-    border-color: #ff8c42;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .time-slot.selected {
-    border-color: #ff8c42;
-    background: rgba(255, 140, 66, 0.2);
-    color: #ff8c42;
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
+    color: #2c3e50;
+    font-weight: bold;
 }
 
 .time-slot.disabled {
-    background: #0f1a2e;
-    color: #666;
+    background: #e9ecef;
+    color: #adb5bd;
     cursor: not-allowed;
-    border-color: #333;
+    border-color: #dee2e6;
 }
 
 /* フォーム */
 .form-container {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .form-group {
@@ -365,92 +327,52 @@
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
 }
 
 .form-input,
 .form-select {
     width: 100%;
     padding: 15px;
-    border: 2px solid #ff8c42;
-    border-radius: 8px;
+    border: 2px solid #dee2e6;
+    border-radius: 10px;
     font-size: 16px;
-    background: #243552;
-    color: #ffffff;
+    background: #ffffff;
+    color: #2c3e50;
     transition: all 0.2s ease;
     box-sizing: border-box;
 }
 
 .form-input:focus,
 .form-select:focus {
-    outline: 2px solid #ff8c42;
-    outline-offset: 2px;
-    border-color: #ff8c42;
-    background: #2a3f5f;
+    outline: none;
+    border-color: #2c3e50;
+    background: #f8f9fa;
 }
 
 .form-input::placeholder {
-    color: #999;
+    color: #6c757d;
 }
 
 .form-select option {
-    background: #243552;
-    color: #ffffff;
-}
-
-.companion-section {
-    border-top: 2px solid #ff8c42;
-    padding-top: 25px;
-    margin-top: 25px;
-}
-
-.companion-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    box-sizing: border-box;
-}
-
-.companion-title {
-    font-size: 18px;
-    font-weight: bold;
-    color: #ffffff;
-}
-
-.remove-companion {
-    background: #ff4757;
-    color: #ffffff;
-    border: none;
-    padding: 10px 15px;
-    border-radius: 15px;
-    cursor: pointer;
-    font-size: 12px;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-}
-
-.remove-companion:hover,
-.remove-companion:focus {
-    background: #ff3742;
-    outline: 2px solid #ff4757;
-    outline-offset: 2px;
+    background: #ffffff;
+    color: #2c3e50;
 }
 
 /* 確認ページ */
 .confirmation-section {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .confirmation-title {
     font-size: 20px;
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -460,7 +382,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(255, 140, 66, 0.2);
+    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
     box-sizing: border-box;
 }
 
@@ -470,40 +392,77 @@
 
 .confirmation-label {
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
 }
 
 .confirmation-value {
-    color: #ff8c42;
+    color: #2c3e50;
     font-weight: bold;
     text-align: right;
 }
 
+/* 予約に関する注意事項 */
+.reservation-notes {
+    background: rgba(44, 62, 80, 0.05);
+    border: 2px solid #2c3e50;
+    padding: 20px;
+    border-radius: 15px;
+    margin-bottom: 25px;
+}
+
+.reservation-notes h4 {
+    color: #2c3e50;
+    font-size: 18px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.reservation-notes ul {
+    list-style: none;
+    color: #2c3e50;
+    padding: 0;
+}
+
+.reservation-notes li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+}
+
+.reservation-notes li:before {
+    content: "•";
+    color: #2c3e50;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+
 /* 重要なお願いセクション */
 .important-agreement {
-    background: #2a1f1f;
-    border: 2px solid #ff8c42;
+    background: #fff8e1;
+    border: 2px solid #ffb300;
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
 }
 
 .important-agreement h4 {
-    color: #ff8c42;
+    color: #e65100;
     font-size: 18px;
     margin-bottom: 15px;
     text-align: center;
 }
 
 .agreement-text {
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 14px;
     padding: 15px;
-    background: rgba(255, 140, 66, 0.1);
-    border-radius: 8px;
-    border-left: 4px solid #ff8c42;
+    background: rgba(255, 179, 0, 0.1);
+    border-radius: 10px;
+    border-left: 4px solid #ffb300;
 }
 
 .agreement-checkbox {
@@ -515,7 +474,7 @@
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-    color: #ffffff;
+    color: #2c3e50;
     user-select: none;
     padding: 10px;
 }
@@ -531,8 +490,8 @@
 .checkmark {
     height: 20px;
     width: 20px;
-    background-color: #243552;
-    border: 2px solid #ff8c42;
+    background-color: #ffffff;
+    border: 2px solid #2c3e50;
     border-radius: 4px;
     margin-right: 10px;
     position: relative;
@@ -540,11 +499,11 @@
 }
 
 .checkbox-container:hover input ~ .checkmark {
-    background-color: #2a3f5f;
+    background-color: #f8f9fa;
 }
 
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #ff8c42;
+    background-color: #2c3e50;
 }
 
 .checkmark:after {
@@ -562,67 +521,67 @@
     top: 2px;
     width: 4px;
     height: 10px;
-    border: solid #0a1628;
+    border: solid #ffffff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
 
 /* 予約ボタンの無効状態 */
 .confirm-button:disabled {
-    background: #666;
-    color: #999;
+    background: #adb5bd;
+    color: #ffffff;
     cursor: not-allowed;
-    opacity: 0.5;
+    opacity: 0.6;
 }
 
 .confirm-button:disabled:hover {
-    background: #666;
+    background: #adb5bd;
     transform: none;
 }
 
 /* 完了ページ */
 .completion-container {
     text-align: center;
-    background: #1a2a42;
+    background: #ffffff;
     padding: 35px 25px;
-    border-radius: 10px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .completion-title {
     font-size: 26px;
     font-weight: bold;
-    color: #ff8c42;
+    color: #2c3e50;
     margin-bottom: 25px;
 }
 
 .reservation-number {
     font-size: 28px;
     font-weight: bold;
-    color: #ffffff;
-    background: rgba(255, 140, 66, 0.1);
+    color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
     padding: 20px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #ff8c42;
+    border: 2px solid #2c3e50;
 }
 
 .completion-message {
     font-size: 16px;
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1.8;
     margin-bottom: 25px;
 }
 
-/* メール注意書きセクション - 修正版 */
+/* メール注意書きセクション */
 .email-notice {
     display: flex;
     align-items: flex-start;
     gap: 15px;
     background: rgba(255, 193, 7, 0.1);
     border: 2px solid #ffc107;
-    border-radius: 10px;
+    border-radius: 15px;
     padding: 20px;
     margin-bottom: 25px;
     text-align: left;
@@ -635,23 +594,15 @@
 }
 
 .email-notice-text {
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1.6;
     flex: 1;
 }
 
-.email-notice-text strong {
-    color: #ffc107;
-    font-size: 16px;
-    display: block;
-    margin-bottom: 5px; /* 修正: 8pxから5pxに変更 */
-    font-weight: bold;
-}
-
 .check-reservation-button {
     background: transparent;
-    color: #ff8c42;
-    border: 2px solid #ff8c42;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
     padding: 15px 25px;
     border-radius: 25px;
     cursor: pointer;
@@ -666,8 +617,8 @@
 
 .check-reservation-button:hover,
 .check-reservation-button:focus {
-    background: #ff8c42;
-    color: #0a1628;
-    outline: 2px solid #ff8c42;
+    background: #2c3e50;
+    color: #ffffff;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
