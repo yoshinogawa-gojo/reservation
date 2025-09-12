@@ -10,16 +10,14 @@
     grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
     gap: 15px;
     padding: 20px;
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     border-radius: 15px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .guest-count-item {
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
+    background: #f8f9fa;
     border-radius: 10px;
     padding: 20px 15px;
     cursor: pointer;
@@ -34,25 +32,25 @@
 }
 
 .guest-count-item:hover {
-    background: rgba(237, 221, 204, 0.2);
-    border-color: #eeddcc;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .guest-count-item.selected {
-    border-color: #eeddcc;
-    background: rgba(237, 221, 204, 0.3);
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
 }
 
 .guest-count-number {
     font-size: 24px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 5px;
 }
 
 .guest-count-label {
     font-size: 14px;
-    color: #eeddcc;
+    color: #2c3e50;
     font-weight: 500;
 }
 
@@ -66,16 +64,14 @@
     flex-direction: column;
     gap: 20px;
     padding: 20px;
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     border-radius: 15px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .seat-item {
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
+    background: #f8f9fa;
     border-radius: 10px;
     padding: 20px;
     cursor: pointer;
@@ -84,13 +80,13 @@
 }
 
 .seat-item:hover {
-    background: rgba(237, 221, 204, 0.2);
-    border-color: #eeddcc;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .seat-item.selected {
-    border-color: #eeddcc;
-    background: rgba(237, 221, 204, 0.3);
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
 }
 
 .seat-header {
@@ -103,32 +99,31 @@
 .seat-name {
     font-size: 18px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
 }
 
 .seat-capacity {
     font-size: 14px;
-    color: #3b372b;
-    background: #eeddcc;
+    color: #6c757d;
+    background: rgba(44, 62, 80, 0.1);
     padding: 4px 8px;
     border-radius: 15px;
 }
 
 .seat-description {
-    color: #eeddcc;
+    color: #2c3e50;
     font-size: 14px;
     line-height: 1.5;
 }
 
 /* カレンダー */
 .calendar-container {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
     overflow: hidden;
 }
 
@@ -141,8 +136,8 @@
 }
 
 .calendar-nav {
-    background: #eeddcc;
-    color: #3b372b;
+    background: #2c3e50;
+    color: #ffffff;
     border: none;
     padding: 10px 14px;
     border-radius: 50%;
@@ -157,15 +152,15 @@
 
 .calendar-nav:hover,
 .calendar-nav:focus {
-    background: #dcc8a8;
-    outline: 2px solid #eeddcc;
+    background: #34495e;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
 .month-year {
     font-size: 18px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     text-align: center;
     flex-grow: 1;
 }
@@ -196,9 +191,8 @@
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
-    color: #eeddcc;
+    background: #f8f9fa;
+    color: #2c3e50;
     border: 1px solid transparent;
     min-height: 36px;
     min-width: 36px;
@@ -207,27 +201,27 @@
 }
 
 .calendar-day:hover {
-    background: rgba(237, 221, 204, 0.2);
-    border-color: #eeddcc;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .calendar-day.selected {
-    background: #eeddcc;
-    color: #3b372b;
+    background: #2c3e50;
+    color: #ffffff;
     font-weight: bold;
-    border-color: #eeddcc;
+    border-color: #2c3e50;
 }
 
 .calendar-day.disabled {
-    background: rgba(59, 55, 43, 0.1);
-    color: rgba(237, 221, 204, 0.4);
+    background: #e9ecef;
+    color: #adb5bd;
     cursor: not-allowed;
-    border-color: rgba(237, 221, 204, 0.2);
+    border-color: #dee2e6;
 }
 
 .calendar-day.holiday {
-    background: rgba(59, 55, 43, 0.1);
-    color: rgba(237, 221, 204, 0.4);
+    background: #e9ecef;
+    color: #adb5bd;
     position: relative;
 }
 
@@ -243,18 +237,17 @@
 
 .calendar-day.disabled:hover {
     transform: none;
-    border-color: rgba(237, 221, 204, 0.2);
+    border-color: #dee2e6;
 }
 
 /* 時間スロット */
 .time-slots-container {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
     display: none;
 }
 
@@ -263,7 +256,7 @@
 }
 
 .time-selection-title {
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 15px;
     text-align: center;
     font-size: 18px;
@@ -280,15 +273,14 @@
 }
 
 .time-slot {
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
+    background: #f8f9fa;
     padding: 12px;
     border-radius: 10px;
     text-align: center;
     cursor: pointer;
     transition: all 0.2s ease;
     border: 2px solid transparent;
-    color: #eeddcc;
+    color: #2c3e50;
     font-weight: 500;
     min-height: 44px;
     display: flex;
@@ -299,33 +291,32 @@
 }
 
 .time-slot:hover {
-    background: rgba(237, 221, 204, 0.2);
-    border-color: #eeddcc;
+    background: #e9ecef;
+    border-color: #2c3e50;
 }
 
 .time-slot.selected {
-    border-color: #eeddcc;
-    background: rgba(237, 221, 204, 0.3);
-    color: #eeddcc;
+    border-color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
+    color: #2c3e50;
     font-weight: bold;
 }
 
 .time-slot.disabled {
-    background: rgba(59, 55, 43, 0.1);
-    color: rgba(237, 221, 204, 0.4);
+    background: #e9ecef;
+    color: #adb5bd;
     cursor: not-allowed;
-    border-color: rgba(237, 221, 204, 0.2);
+    border-color: #dee2e6;
 }
 
 /* フォーム */
 .form-container {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .form-group {
@@ -336,19 +327,18 @@
     display: block;
     margin-bottom: 10px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
 }
 
 .form-input,
 .form-select {
     width: 100%;
     padding: 15px;
-    border: 2px solid rgba(237, 221, 204, 0.3);
+    border: 2px solid #dee2e6;
     border-radius: 10px;
     font-size: 16px;
-    background: rgba(59, 55, 43, 0.3);
-    backdrop-filter: blur(5px);
-    color: #eeddcc;
+    background: #ffffff;
+    color: #2c3e50;
     transition: all 0.2s ease;
     box-sizing: border-box;
 }
@@ -356,34 +346,33 @@
 .form-input:focus,
 .form-select:focus {
     outline: none;
-    border-color: #eeddcc;
-    background: rgba(59, 55, 43, 0.5);
+    border-color: #2c3e50;
+    background: #f8f9fa;
 }
 
 .form-input::placeholder {
-    color: rgba(237, 221, 204, 0.6);
+    color: #6c757d;
 }
 
 .form-select option {
-    background: #3b372b;
-    color: #eeddcc;
+    background: #ffffff;
+    color: #2c3e50;
 }
 
 /* 確認ページ */
 .confirmation-section {
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .confirmation-title {
     font-size: 20px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 20px;
     text-align: center;
 }
@@ -393,7 +382,7 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 0;
-    border-bottom: 1px solid rgba(237, 221, 204, 0.2);
+    border-bottom: 1px solid rgba(44, 62, 80, 0.1);
     box-sizing: border-box;
 }
 
@@ -403,27 +392,26 @@
 
 .confirmation-label {
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
 }
 
 .confirmation-value {
-    color: #eeddcc;
+    color: #2c3e50;
     font-weight: bold;
     text-align: right;
 }
 
 /* 予約に関する注意事項 */
 .reservation-notes {
-    background: rgba(59, 55, 43, 0.2);
-    backdrop-filter: blur(10px);
-    border: 2px solid #eeddcc;
+    background: rgba(44, 62, 80, 0.05);
+    border: 2px solid #2c3e50;
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 25px;
 }
 
 .reservation-notes h4 {
-    color: #eeddcc;
+    color: #2c3e50;
     font-size: 18px;
     margin-bottom: 15px;
     text-align: center;
@@ -431,7 +419,7 @@
 
 .reservation-notes ul {
     list-style: none;
-    color: #eeddcc;
+    color: #2c3e50;
     padding: 0;
 }
 
@@ -444,7 +432,7 @@
 
 .reservation-notes li:before {
     content: "•";
-    color: #eeddcc;
+    color: #2c3e50;
     position: absolute;
     left: 0;
     font-size: 16px;
@@ -452,8 +440,7 @@
 
 /* 重要なお願いセクション */
 .important-agreement {
-    background: rgba(255, 179, 0, 0.1);
-    backdrop-filter: blur(10px);
+    background: #fff8e1;
     border: 2px solid #ffb300;
     padding: 20px;
     border-radius: 15px;
@@ -461,20 +448,19 @@
 }
 
 .important-agreement h4 {
-    color: #ffc107;
+    color: #e65100;
     font-size: 18px;
     margin-bottom: 15px;
     text-align: center;
 }
 
 .agreement-text {
-    color: #eeddcc;
+    color: #2c3e50;
     line-height: 1.7;
     margin-bottom: 20px;
     font-size: 14px;
     padding: 15px;
     background: rgba(255, 179, 0, 0.1);
-    backdrop-filter: blur(5px);
     border-radius: 10px;
     border-left: 4px solid #ffb300;
 }
@@ -488,7 +474,7 @@
     align-items: center;
     cursor: pointer;
     font-size: 16px;
-    color: #eeddcc;
+    color: #2c3e50;
     user-select: none;
     padding: 10px;
 }
@@ -504,9 +490,8 @@
 .checkmark {
     height: 20px;
     width: 20px;
-    background-color: rgba(59, 55, 43, 0.5);
-    backdrop-filter: blur(5px);
-    border: 2px solid #eeddcc;
+    background-color: #ffffff;
+    border: 2px solid #2c3e50;
     border-radius: 4px;
     margin-right: 10px;
     position: relative;
@@ -514,11 +499,11 @@
 }
 
 .checkbox-container:hover input ~ .checkmark {
-    background-color: rgba(59, 55, 43, 0.7);
+    background-color: #f8f9fa;
 }
 
 .checkbox-container input:checked ~ .checkmark {
-    background-color: #eeddcc;
+    background-color: #2c3e50;
 }
 
 .checkmark:after {
@@ -536,57 +521,55 @@
     top: 2px;
     width: 4px;
     height: 10px;
-    border: solid #3b372b;
+    border: solid #ffffff;
     border-width: 0 2px 2px 0;
     transform: rotate(45deg);
 }
 
 /* 予約ボタンの無効状態 */
 .confirm-button:disabled {
-    background: rgba(173, 181, 189, 0.5);
-    color: rgba(237, 221, 204, 0.5);
+    background: #adb5bd;
+    color: #ffffff;
     cursor: not-allowed;
     opacity: 0.6;
 }
 
 .confirm-button:disabled:hover {
-    background: rgba(173, 181, 189, 0.5);
+    background: #adb5bd;
     transform: none;
 }
 
 /* 完了ページ */
 .completion-container {
     text-align: center;
-    background: rgba(237, 221, 204, 0.1);
-    backdrop-filter: blur(10px);
+    background: #ffffff;
     padding: 35px 25px;
     border-radius: 15px;
-    border: 2px solid #eeddcc;
-    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .completion-title {
     font-size: 26px;
     font-weight: bold;
-    color: #eeddcc;
+    color: #2c3e50;
     margin-bottom: 25px;
 }
 
 .reservation-number {
     font-size: 28px;
     font-weight: bold;
-    color: #3b372b;
-    background: #eeddcc;
-    backdrop-filter: blur(5px);
+    color: #2c3e50;
+    background: rgba(44, 62, 80, 0.1);
     padding: 20px;
     border-radius: 15px;
     margin-bottom: 25px;
-    border: 2px solid #eeddcc;
+    border: 2px solid #2c3e50;
 }
 
 .completion-message {
     font-size: 16px;
-    color: #eeddcc;
+    color: #2c3e50;
     line-height: 1.8;
     margin-bottom: 25px;
 }
@@ -597,7 +580,6 @@
     align-items: flex-start;
     gap: 15px;
     background: rgba(255, 193, 7, 0.1);
-    backdrop-filter: blur(10px);
     border: 2px solid #ffc107;
     border-radius: 15px;
     padding: 20px;
@@ -612,15 +594,15 @@
 }
 
 .email-notice-text {
-    color: #eeddcc;
+    color: #2c3e50;
     line-height: 1.6;
     flex: 1;
 }
 
 .check-reservation-button {
     background: transparent;
-    color: #eeddcc;
-    border: 2px solid #eeddcc;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
     padding: 15px 25px;
     border-radius: 25px;
     cursor: pointer;
@@ -631,13 +613,12 @@
     margin-top: 20px;
     transition: all 0.2s ease;
     min-height: 44px;
-    backdrop-filter: blur(5px);
 }
 
 .check-reservation-button:hover,
 .check-reservation-button:focus {
-    background: #eeddcc;
-    color: #1a237e;
-    outline: 2px solid #eeddcc;
+    background: #2c3e50;
+    color: #ffffff;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
