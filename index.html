@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hair works 天 - 予約サイト</title>
+    <title>レストランよしの川 - 予約サイト</title>
     <link rel="stylesheet" href="base.css">
     <link rel="stylesheet" href="components.css">
     <link rel="stylesheet" href="pages.css">
@@ -29,24 +29,13 @@
         <div class="container">
             <div class="shop-info">
                 <div class="shop-logo">
-                    <img src="hairworksten-logo.png" alt="Hair works 天 ロゴ" class="shop-logo-image">
+                    <img src="restaurant-logo.png" alt="レストランよしの川 ロゴ" class="shop-logo-image">
                 </div>
-                <div class="shop-catchphrase">カットのみでもご利用頂けます</div>
+                <div class="shop-catchphrase">星と川の見える和風レストラン</div>
                 
-                <button class="reservation-button" onclick="goToMenuPage()">
+                <button class="reservation-button" onclick="goToGuestCountPage()">
                     ご予約はこちら
                 </button>
-            </div>
-
-            <!-- まつかるセクション -->
-            <div class="matsukaru-info">
-                <div class="matsukaru-logo">
-                    <img src="matsukaru-logo.png" alt="eyelash salon まつかる ロゴ" class="matsukaru-logo-image">
-                </div>
-                <div class="shop-catchphrase">まつげパーマのみでもご利用頂けます</div>
-                <a href="https://beauty.hotpepper.jp/kr/slnH000688430/" target="_blank" class="reservation-button">
-                    ご予約はこちら
-                </a>
             </div>
 
             <!-- 重要なお知らせ -->
@@ -64,15 +53,11 @@
                 <div class="hours-grid">
                     <div class="hours-item">
                         <span class="day-label">平日</span>
-                        <span class="time-value">10:00 ～ 19:00（LO18:00）</span>
+                        <span class="time-value">11:00 ～ 15:00（LO14:30）</span>
                     </div>
                     <div class="hours-item weekend">
-                        <span class="day-label">土曜日・日曜日</span>
-                        <span class="time-value">09:00 ～ 18:00（LO17:00）</span>
-                    </div>
-                    <div class="hours-item holiday">
-                        <span class="day-label">祝日</span>
-                        <span class="time-value">09:00 ～ 18:00（LO17:00）</span>
+                        <span class="day-label">土曜日・日曜日・祝日</span>
+                        <span class="time-value">11:00 ～ 15:00 / 17:00 ～ 20:00（LO19:30）</span>
                     </div>
                 </div>
             </div>
@@ -106,8 +91,8 @@
 
             <!-- メインの予約ボタン -->
             <div class="main-reservation-section">
-                <button class="main-reservation-button" onclick="goToMenuPage()">
-                    <span class="button-icon">✂️</span>
+                <button class="main-reservation-button" onclick="goToGuestCountPage()">
+                    <span class="button-icon">🍽️</span>
                     <span class="button-text">ご予約はこちら</span>
                     <span class="button-arrow">→</span>
                 </button>
@@ -115,16 +100,16 @@
         </div>
     </div>
 
-    <!-- メニュー選択ページ -->
-    <div id="menu-page" class="page">
+    <!-- 人数選択ページ -->
+    <div id="guest-count-page" class="page">
         <div class="container">
             <div class="page-header">
-                <div class="page-title">メニューを選択してください</div>
+                <div class="page-title">ご利用人数を選択してください</div>
             </div>
 
-            <div class="menu-section">
-                <div id="menu-grid" class="menu-grid">
-                    <div class="loading">メニューを読み込んでいます...</div>
+            <div class="guest-count-section">
+                <div id="guest-count-grid" class="guest-count-grid">
+                    <!-- 人数選択ボタンがJavaScriptで生成されます -->
                 </div>
             </div>
 
@@ -158,8 +143,28 @@
             </div>
 
             <div class="button-group">
-                <button class="back-button" onclick="goToMenuPage()">戻る</button>
-                <button class="next-button" id="datetime-next-button" onclick="goToInfoPage()">次へ</button>
+                <button class="back-button" onclick="goToGuestCountPage()">戻る</button>
+                <button class="next-button" id="datetime-next-button" onclick="goToSeatPage()">次へ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 座席選択ページ -->
+    <div id="seat-page" class="page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">座席を選択してください</div>
+            </div>
+
+            <div class="seat-section">
+                <div id="seat-grid" class="seat-grid">
+                    <div class="loading">座席情報を読み込んでいます...</div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="goToDatetimePage()">戻る</button>
+                <button class="next-button" id="seat-next-button" onclick="goToInfoPage()">次へ</button>
             </div>
         </div>
     </div>
@@ -168,7 +173,7 @@
     <div id="info-page" class="page">
         <div class="container">
             <div class="page-header">
-                <div class="page-title">お客様情報を入力してください</div>
+                <div class="page-title">代表者情報を入力してください</div>
             </div>
 
             <div class="form-container">
@@ -185,14 +190,8 @@
                     <input type="email" class="form-input" id="email" placeholder="example@email.com" required>
                 </div>
 
-                <button class="add-companion-button" onclick="addCompanion()">
-                    同行者を追加する（1名まで）
-                </button>
-
-                <div id="companions-container"></div>
-
                 <div class="button-group">
-                    <button class="back-button" onclick="goToDatetimePage()">戻る</button>
+                    <button class="back-button" onclick="goToSeatPage()">戻る</button>
                     <button class="confirm-button" onclick="goToConfirmPage()">確認</button>
                 </div>
             </div>
@@ -223,7 +222,7 @@
                 <h4>重要なお願い</h4>
                 <div class="agreement-text">
                     ※ご予約時間はあくまで目安となります。<br>
-                    前のお客様の施術内容により、開始時間が前後する場合がございますので、恐れ入りますが、ご予約時間の5分前までにお越しください。<br>
+                    お食事の準備により、開始時間が前後する場合がございますので、恐れ入りますが、ご予約時間の5分前までにお越しください。<br>
                     また、ご予約時間を過ぎてもご来店が確認できない場合は、次のお客様をご案内させていただくことがございますので、予めご了承ください。
                 </div>
                 <div class="agreement-checkbox">
