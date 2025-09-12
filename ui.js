@@ -1,4 +1,4 @@
-// Hair Works天 予約サイト - UI制御モジュール
+// レストランよしの川 予約サイト - UI制御モジュール
 
 // ロゴ画像の表示制御（Safari対応）
 function initLogoDisplay() {
@@ -63,7 +63,6 @@ function displayNotices() {
         const noticeItem = document.createElement('div');
         noticeItem.className = 'notice-item';
         
-        // notice.iconとnotice.textが存在するかチェック
         const icon = notice.icon || '📝';
         const text = notice.text || 'お知らせ内容が設定されていません';
         
@@ -77,62 +76,86 @@ function displayNotices() {
     });
     
     console.log(`${notices.length}件の重要なお知らせを表示しました`);
-    console.log('最終的なnoticeContentのHTML:', noticeContent.innerHTML);
     console.log('=== displayNotices() 終了 ===');
 }
 
-// メニューの表示
-function displayMenus() {
-    const menuGrid = document.getElementById('menu-grid');
+// 人数選択の表示
+function displayGuestCounts() {
+    const guestCountGrid = document.getElementById('guest-count-grid');
     
-    if (Object.keys(menus).length === 0) {
-        menuGrid.innerHTML = '<div class="error">メニューデータがありません。管理者にお問い合わせください。</div>';
-        return;
-    }
+    guestCountGrid.innerHTML = '';
     
-    menuGrid.innerHTML = '';
-    
-    Object.entries(menus).forEach(([menuName, menuData]) => {
-        const menuItem = document.createElement('div');
-        menuItem.className = 'menu-item';
-        menuItem.onclick = () => selectMenu(menuName, menuData);
+    for (let count = 1; count <= APP_CONFIG.maxGuests; count++) {
+        const guestCountItem = document.createElement('div');
+        guestCountItem.className = 'guest-count-item';
+        guestCountItem.onclick = () => selectGuestCount(count);
         
-        menuItem.innerHTML = `
-            <div class="menu-header">
-                <div class="menu-name">${menuName}</div>
-                <div class="menu-price">¥${menuData.fare.toLocaleString()}</div>
-            </div>
-            <div class="menu-details" id="details-${menuName}">
-                <div class="menu-description">${menuData.text}</div>
-                <div class="menu-worktime">施術時間：約${menuData.worktime}分</div>
-                <div class="reservation-notes">
-                    <h4>予約に関する注意事項</h4>
-                    <ul>
-                        <li>ご予約は翌日以降の日程で承っております</li>
-                        <li>キャンセル締切：1時間前まで</li>
-                    </ul>
-                </div>
-                <button class="select-button" onclick="selectMenuAndGoNext('${menuName}')">このメニューを選択</button>
-            </div>
+        guestCountItem.innerHTML = `
+            <div class="guest-count-number">${count}</div>
+            <div class="guest-count-label">${count === 1 ? '名様' : '名様'}</div>
         `;
         
-        menuGrid.appendChild(menuItem);
-    });
+        guestCountGrid.appendChild(guestCountItem);
+    }
 }
 
-// メニュー選択
-function selectMenu(menuName, menuData) {
-    document.querySelectorAll('.menu-item').forEach(item => {
+// 人数選択
+function selectGuestCount(count) {
+    document.querySelectorAll('.guest-count-item').forEach(item => {
         item.classList.remove('selected');
-        const details = item.querySelector('.menu-details');
-        if (details) details.classList.remove('show');
     });
     
     event.currentTarget.classList.add('selected');
-    const details = document.getElementById(`details-${menuName}`);
-    details.classList.add('show');
+    selectedGuestCount = count;
     
-    selectedMenu = { name: menuName, ...menuData };
+    // 次へボタンを表示（人数選択後は自動的に次のページへ）
+    setTimeout(() => {
+        goToDatetimePage();
+    }, 300);
+}
+
+// 座席（メニュー）の表示
+function displaySeats() {
+    const seatGrid = document.getElementById('seat-grid');
+    
+    if (Object.keys(menus).length === 0) {
+        seatGrid.innerHTML = '<div class="error">座席情報がありません。管理者にお問い合わせください。</div>';
+        return;
+    }
+    
+    seatGrid.innerHTML = '';
+    
+    Object.entries(menus).forEach(([seatName, seatData]) => {
+        const seatItem = document.createElement('div');
+        seatItem.className = 'seat-item';
+        seatItem.onclick = () => selectSeat(seatName, seatData);
+        
+        // 座席の収容人数を表示（worktimeを人数として使用）
+        const capacity = seatData.worktime || 4;
+        
+        seatItem.innerHTML = `
+            <div class="seat-header">
+                <div class="seat-name">${seatName}</div>
+                <div class="seat-capacity">${capacity}名様まで</div>
+            </div>
+            <div class="seat-description">${seatData.text || '落ち着いた雰囲気のお席です。'}</div>
+        `;
+        
+        seatGrid.appendChild(seatItem);
+    });
+}
+
+// 座席選択
+function selectSeat(seatName, seatData) {
+    document.querySelectorAll('.seat-item').forEach(item => {
+        item.classList.remove('selected');
+    });
+    
+    event.currentTarget.classList.add('selected');
+    selectedSeat = { name: seatName, ...seatData };
+    
+    // 次へボタンを表示
+    document.getElementById('seat-next-button').classList.add('show');
 }
 
 // カレンダーの初期化
@@ -143,7 +166,7 @@ function initCalendar() {
     updateCalendar();
 }
 
-// カレンダーの更新（スタッフ表示付き・修正版）
+// カレンダーの更新（スタッフ表示機能を削除）
 async function updateCalendar() {
     const monthYear = document.getElementById('month-year');
     const calendarGrid = document.getElementById('calendar-grid');
@@ -157,7 +180,7 @@ async function updateCalendar() {
         const dayHeader = document.createElement('div');
         dayHeader.textContent = day;
         dayHeader.style.fontWeight = 'bold';
-        dayHeader.style.color = '#ff6b35';
+        dayHeader.style.color = '#2c3e50';
         dayHeader.style.textAlign = 'center';
         dayHeader.style.padding = '10px 0';
         calendarGrid.appendChild(dayHeader);
@@ -165,10 +188,6 @@ async function updateCalendar() {
     
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
-    
-    // 月別スタッフ情報を取得
-    const monthlyStaffData = await getMonthlyStaffInfo(currentYear, currentMonth);
-    console.log('取得したスタッフデータ:', monthlyStaffData);
     
     // 日本時間での今日の日付を取得
     const now = new Date();
@@ -198,28 +217,10 @@ async function updateCalendar() {
     for (let day = 1; day <= daysInMonth; day++) {
         const dayCell = document.createElement('div');
         dayCell.className = 'calendar-day';
+        dayCell.textContent = day;
         
         const cellDate = new Date(currentYear, currentMonth, day);
         const dateString = `${currentYear}-${String(currentMonth + 1).padStart(2, '0')}-${String(day).padStart(2, '0')}`;
-        
-        // スタッフ情報を取得（0埋め形式のキーで検索）
-        const dayKey = String(day).padStart(2, '0'); // "01", "02", "15"
-        const staffName = monthlyStaffData[dayKey] || null;
-        
-        // 日付番号を表示
-        const dayNumber = document.createElement('div');
-        dayNumber.className = 'calendar-day-number';
-        dayNumber.textContent = day;
-        dayCell.appendChild(dayNumber);
-        
-        // スタッフ名を表示（ある場合）
-        if (staffName) {
-            const staffElement = document.createElement('div');
-            staffElement.className = 'calendar-day-staff';
-            staffElement.textContent = staffName;
-            dayCell.appendChild(staffElement);
-            console.log(`${dateString}にスタッフ表示: ${staffName}`);
-        }
         
         // 祝日判定を追加
         const isHoliday = japaneseHolidays.includes(dateString);
@@ -246,16 +247,13 @@ async function updateCalendar() {
             
             // 平日・土日祝を示すツールチップを追加
             const isWeekend = isWeekendOrHoliday(dateString);
-            const timeInfo = isWeekend ? '09:00-17:00' : '10:00-18:00';
+            const timeInfo = isWeekend ? 'ランチ・ディナー' : 'ランチのみ';
             const dayType = isWeekend ? '土日祝' : '平日';
             
-            let tooltipText = `${dateString}を選択 (${dayType}: ${timeInfo})`;
-            if (staffName) {
-                tooltipText += ` - 担当: ${staffName}`;
-            }
+            const tooltipText = `${dateString}を選択 (${dayType}: ${timeInfo})`;
             dayCell.title = tooltipText;
             
-            console.log(`✅ ${dateString} は予約可能 - スタッフ: ${staffName || '未設定'}`);
+            console.log(`✅ ${dateString} は予約可能`);
         }
         
         calendarGrid.appendChild(dayCell);
@@ -278,7 +276,7 @@ function selectDate(dateString) {
     displayTimeSlots(dateString);
 }
 
-// 時間スロットの表示（スタッフ情報付き・修正版）
+// 時間スロットの表示（レストラン向け）
 async function displayTimeSlots(date) {
     const timeSlotsContainer = document.getElementById('time-slots-container');
     const timeSlots = document.getElementById('time-slots');
@@ -287,7 +285,7 @@ async function displayTimeSlots(date) {
     timeSlots.innerHTML = '<div class="loading">時間を確認しています...</div>';
     
     try {
-        // ui.js内で直接日付判定を行う
+        // 日付判定
         const [year, month, day] = date.split('-').map(Number);
         const targetDate = new Date(year, month - 1, day);
         
@@ -296,7 +294,7 @@ async function displayTimeSlots(date) {
         const japanTime = new Date(now.toLocaleString("en-US", {timeZone: "Asia/Tokyo"}));
         const today = new Date(japanTime.getFullYear(), japanTime.getMonth(), japanTime.getDate());
         
-        // 翌日から予約可能（1日後から）
+        // 翌日から予約可能
         const minimumDate = new Date(today);
         minimumDate.setDate(minimumDate.getDate() + APP_CONFIG.minAdvanceBookingDays);
         
@@ -305,10 +303,6 @@ async function displayTimeSlots(date) {
         maximumDate.setDate(maximumDate.getDate() + APP_CONFIG.maxAdvanceBookingDays);
         
         console.log(`displayTimeSlots 日付チェック: ${date}`);
-        console.log(`今日: ${today.toDateString()}`);
-        console.log(`対象日: ${targetDate.toDateString()}`);
-        console.log(`最小予約日: ${minimumDate.toDateString()}`);
-        console.log(`最大予約日: ${maximumDate.toDateString()}`);
         
         if (targetDate < minimumDate || targetDate > maximumDate) {
             console.log('❌ 予約期間外です');
@@ -325,7 +319,7 @@ async function displayTimeSlots(date) {
         
         console.log('✅ 予約可能な日付です');
         
-        // バックエンドから時間スロット情報とスタッフ情報を取得（フォールバック付き）
+        // バックエンドから時間スロット情報を取得（フォールバック付き）
         const slotInfo = await getAvailableTimeSlots(date);
         
         // 予約状況を取得
@@ -336,29 +330,20 @@ async function displayTimeSlots(date) {
         // バックエンドから取得した時間スロットを使用
         const availableTimeSlots = slotInfo.timeslots || getTimeSlotsForDate(date);
         const isWeekend = slotInfo.isWeekend !== undefined ? slotInfo.isWeekend : isWeekendOrHoliday(date);
-        const staffName = slotInfo.staff; // スタッフ情報を取得
         
-        // 時間スロットのタイトルを更新（スタッフ情報付き）
+        // 時間スロットのタイトルを更新
         const timeSelectionTitle = document.querySelector('.time-selection-title');
         if (timeSelectionTitle) {
             const dayType = isWeekend ? '土日祝' : '平日';
-            const businessHours = slotInfo.businessHours || APP_CONFIG.businessHours[isWeekend ? 'weekend' : 'weekday'];
+            let titleText;
             
-            let titleText = `時間を選択してください（${dayType}: ${businessHours.start}〜${businessHours.end}）`;
-            
-            // スタッフ情報がある場合は追加表示
-            if (staffName) {
-                titleText += ` - 担当：${staffName}`;
+            if (isWeekend) {
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00 / ディナー17:00-20:00）`;
+            } else {
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00）`;
             }
             
             timeSelectionTitle.innerHTML = titleText;
-            
-            // スタッフ情報がある場合はスタイリング
-            if (staffName) {
-                timeSelectionTitle.classList.add('with-staff');
-            } else {
-                timeSelectionTitle.classList.remove('with-staff');
-            }
         }
         
         if (availableTimeSlots.length === 0) {
@@ -384,18 +369,14 @@ async function displayTimeSlots(date) {
             } else {
                 timeSlot.textContent += ' ⭕';
                 timeSlot.onclick = () => selectTime(time);
-                let tooltipText = `${time}を選択`;
-                if (staffName) {
-                    tooltipText += ` (担当: ${staffName})`;
-                }
-                timeSlot.title = tooltipText;
+                timeSlot.title = `${time}を選択`;
             }
             
             timeSlots.appendChild(timeSlot);
         });
         
         const dayTypeText = isWeekend ? '土日祝' : '平日';
-        console.log(`${date}の時間スロット表示完了 (${dayTypeText}: ${availableTimeSlots.length}件, スタッフ: ${staffName || '未設定'})`);
+        console.log(`${date}の時間スロット表示完了 (${dayTypeText}: ${availableTimeSlots.length}件)`);
         
     } catch (error) {
         console.error('予約状況の確認に失敗しました:', error);
@@ -415,60 +396,6 @@ function selectTime(time) {
     document.getElementById('datetime-next-button').classList.add('show');
 }
 
-// 同行者追加（数字のみ電話番号対応）
-function addCompanion() {
-    if (companions.length >= APP_CONFIG.maxCompanions) {
-        alert('同行者は最大1名まで追加できます。');
-        return;
-    }
-    
-    const companionId = `companion-${companions.length}`;
-    companions.push({ id: companionId, menu: '', lastName: '', firstName: '' });
-    
-    const companionsContainer = document.getElementById('companions-container');
-    const companionDiv = document.createElement('div');
-    companionDiv.className = 'companion-section';
-    companionDiv.id = companionId;
-    
-    companionDiv.innerHTML = `
-        <div class="companion-header">
-            <div class="companion-title">同行者 ${companions.length}</div>
-            <button class="remove-companion" onclick="removeCompanion('${companionId}')">削除</button>
-        </div>
-        <div class="form-group">
-            <label class="form-label">メニュー *</label>
-            <select class="form-select" id="${companionId}-menu" required>
-                <option value="">メニューを選択</option>
-                ${Object.keys(menus).map(menu => `<option value="${menu}">${menu} - ¥${menus[menu].fare.toLocaleString()}</option>`).join('')}
-            </select>
-        </div>
-        <div class="form-group">
-            <label class="form-label">お名前 *</label>
-            <input type="text" class="form-input" id="${companionId}-last-name" placeholder="例：田中花子" required>
-        </div>
-        <div class="form-group">
-            <label class="form-label">電話番号 *</label>
-            <input type="number" class="form-input" id="${companionId}-first-name" placeholder="例：08098765432" required pattern="[0-9]*" inputmode="numeric">
-        </div>
-    `;
-    
-    companionsContainer.appendChild(companionDiv);
-}
-
-// 同行者削除
-function removeCompanion(companionId) {
-    const companionIndex = companions.findIndex(c => c.id === companionId);
-    if (companionIndex > -1) {
-        companions.splice(companionIndex, 1);
-        document.getElementById(companionId).remove();
-        
-        companions.forEach((companion, index) => {
-            const companionDiv = document.getElementById(companion.id);
-            companionDiv.querySelector('.companion-title').textContent = `同行者 ${index + 1}`;
-        });
-    }
-}
-
 // 確認画面の詳細表示
 function displayConfirmationDetails() {
     const confirmationDetails = document.getElementById('confirmation-details');
@@ -476,11 +403,6 @@ function displayConfirmationDetails() {
     const lastName = document.getElementById('last-name').value.trim();
     const phoneNumber = document.getElementById('first-name').value.trim();
     const email = document.getElementById('email').value.trim();
-    
-    let totalPrice = selectedMenu.fare;
-    companions.forEach(companion => {
-        totalPrice += menus[companion.menu].fare;
-    });
     
     // 選択された日時の詳細情報を追加
     const isWeekend = isWeekendOrHoliday(selectedDate);
@@ -492,8 +414,12 @@ function displayConfirmationDetails() {
             <span class="confirmation-value">${selectedDate} ${selectedTime} (${dayType})</span>
         </div>
         <div class="confirmation-item">
-            <span class="confirmation-label">代表者メニュー</span>
-            <span class="confirmation-value">${selectedMenu.name} (¥${selectedMenu.fare.toLocaleString()})</span>
+            <span class="confirmation-label">ご利用人数</span>
+            <span class="confirmation-value">${selectedGuestCount}名様</span>
+        </div>
+        <div class="confirmation-item">
+            <span class="confirmation-label">座席</span>
+            <span class="confirmation-value">${selectedSeat.name}</span>
         </div>
         <div class="confirmation-item">
             <span class="confirmation-label">代表者お名前</span>
@@ -509,35 +435,11 @@ function displayConfirmationDetails() {
         </div>
     `;
     
-    companions.forEach((companion, index) => {
-        html += `
-            <div class="confirmation-item">
-                <span class="confirmation-label">同行者${index + 1}メニュー</span>
-                <span class="confirmation-value">${companion.menu} (¥${menus[companion.menu].fare.toLocaleString()})</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">同行者${index + 1}お名前</span>
-                <span class="confirmation-value">${companion.lastName}</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">同行者${index + 1}電話番号</span>
-                <span class="confirmation-value">${companion.firstName}</span>
-            </div>
-        `;
-    });
-    
-    html += `
-        <div class="confirmation-item" style="border-top: 2px solid #e74c3c; padding-top: 15px; margin-top: 15px;">
-            <span class="confirmation-label">合計金額</span>
-            <span class="confirmation-value">¥${totalPrice.toLocaleString()}</span>
-        </div>
-    `;
-    
     confirmationDetails.innerHTML = html;
 }
 
 // 完了画面の詳細表示
-function displayCompletionDetails(mainReservation, companionReservations) {
+function displayCompletionDetails(mainReservation) {
     document.getElementById('completion-reservation-number').textContent = `予約番号: ${mainReservation.reservationNumber}`;
     
     // 日時の詳細情報を追加
@@ -564,11 +466,15 @@ function displayCompletionDetails(mainReservation, companionReservations) {
                 <span class="confirmation-value">${selectedDate} ${selectedTime} (${dayType})</span>
             </div>
             <div class="confirmation-item">
-                <span class="confirmation-label">メニュー</span>
-                <span class="confirmation-value">${mainReservation.Menu}</span>
+                <span class="confirmation-label">ご利用人数</span>
+                <span class="confirmation-value">${selectedGuestCount}名様</span>
             </div>
             <div class="confirmation-item">
-                <span class="confirmation-label">お名前</span>
+                <span class="confirmation-label">座席</span>
+                <span class="confirmation-value">${selectedSeat.name}</span>
+            </div>
+            <div class="confirmation-item">
+                <span class="confirmation-label">代表者お名前</span>
                 <span class="confirmation-value">${mainReservation["Name-f"]}</span>
             </div>
             <div class="confirmation-item">
@@ -581,96 +487,6 @@ function displayCompletionDetails(mainReservation, companionReservations) {
             </div>
         </div>
     `;
-    
-    if (companionReservations.length > 0) {
-        html += '<div class="confirmation-section"><div class="confirmation-title">同行者情報</div>';
-        companionReservations.forEach((companion, index) => {
-            html += `
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}お名前</span>
-                    <span class="confirmation-value">${companion["Name-f"]}</span>
-                </div>
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}電話番号</span>
-                    <span class="confirmation-value">${companion["Name-s"]}</span>
-                </div>
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}メニュー</span>
-                    <span class="confirmation-value">${companion.Menu} - 予約番号: ${companion.reservationNumber}</span>
-                </div>
-            `;
-        });
-        html += '</div>';
-    }
-    
-}
-
-// 完了画面の詳細表示
-function displayCompletionDetails(mainReservation, companionReservations) {
-    document.getElementById('completion-reservation-number').textContent = `予約番号: ${mainReservation.reservationNumber}`;
-    
-    // 日時の詳細情報を追加
-    const isWeekend = isWeekendOrHoliday(selectedDate);
-    const dayType = isWeekend ? '土日祝' : '平日';
-    
-    let html = `
-        <div class="confirmation-section">
-            <div class="confirmation-title">店舗情報</div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">店舗名</span>
-                <span class="confirmation-value">${APP_CONFIG.shopInfo.name}</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">住所</span>
-                <span class="confirmation-value">${APP_CONFIG.shopInfo.address}</span>
-            </div>
-        </div>
-        
-        <div class="confirmation-section">
-            <div class="confirmation-title">予約詳細</div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">予約日時</span>
-                <span class="confirmation-value">${selectedDate} ${selectedTime} (${dayType})</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">メニュー</span>
-                <span class="confirmation-value">${mainReservation.Menu}</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">お名前</span>
-                <span class="confirmation-value">${mainReservation["Name-f"]}</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">電話番号</span>
-                <span class="confirmation-value">${mainReservation["Name-s"]}</span>
-            </div>
-            <div class="confirmation-item">
-                <span class="confirmation-label">メールアドレス</span>
-                <span class="confirmation-value">${mainReservation.mail}</span>
-            </div>
-        </div>
-    `;
-    
-    if (companionReservations.length > 0) {
-        html += '<div class="confirmation-section"><div class="confirmation-title">同行者情報</div>';
-        companionReservations.forEach((companion, index) => {
-            html += `
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}お名前</span>
-                    <span class="confirmation-value">${companion["Name-f"]}</span>
-                </div>
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}電話番号</span>
-                    <span class="confirmation-value">${companion["Name-s"]}</span>
-                </div>
-                <div class="confirmation-item">
-                    <span class="confirmation-label">同行者${index + 1}メニュー</span>
-                    <span class="confirmation-value">${companion.Menu} - 予約番号: ${companion.reservationNumber}</span>
-                </div>
-            `;
-        });
-        html += '</div>';
-    }
     
     document.getElementById('completion-details').innerHTML = html;
 }
