@@ -1,4 +1,4 @@
-// Hair Works天 予約サイト - メイン処理
+// レストランよしの川 予約サイト - メイン処理
 
 // 予約送信の状態管理
 let isSubmittingReservation = false;
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     loadReservationSettings(); // 予約設定を最初に読み込み
     console.log('loadReservationSettings() を呼び出しました');
     
-    loadMenus();
+    loadMenus(); // 座席情報として使用
     console.log('loadMenus() を呼び出しました');
     
     loadNotices(); // 重要なお知らせの読み込み
@@ -33,6 +33,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // 同意チェックボックスのイベントリスナーを設定
     initAgreementCheckbox();
     console.log('initAgreementCheckbox() を呼び出しました');
+    
+    // 人数選択画面の初期化
+    displayGuestCounts();
+    console.log('displayGuestCounts() を呼び出しました');
     
     // ローカルストレージ対応チェック
     if (isLocalStorageSupported()) {
@@ -76,38 +80,25 @@ function resetAgreementCheckbox() {
     }
 }
 
-// 同行者のリセット関数（新規追加）
-function resetCompanions() {
-    // 同行者配列をクリア
-    companions = [];
-    
-    // DOM要素もクリア
-    const companionsContainer = document.getElementById('companions-container');
-    if (companionsContainer) {
-        companionsContainer.innerHTML = '';
-    }
-    
-    console.log('同行者情報をリセットしました');
-}
-
 // ページ遷移関数群
 function goToTopPage() {
     showPage('top-page');
     resetFormData();
-    // 予約送信状態をリセット
     resetSubmissionState();
 }
 
-function goToMenuPage() {
-    showPage('menu-page');
-    if (Object.keys(menus).length === 0) {
-        loadMenus();
-    }
-    // メニューページに戻る際に同行者をリセット
-    resetCompanions();
+function goToGuestCountPage() {
+    showPage('guest-count-page');
+    displayGuestCounts();
 }
 
 async function goToDatetimePage() {
+    if (!selectedGuestCount) {
+        alert('人数を選択してください。');
+        goToGuestCountPage();
+        return;
+    }
+    
     showPage('datetime-page');
     
     const calendarGrid = document.getElementById('calendar-grid');
@@ -131,12 +122,9 @@ async function goToDatetimePage() {
         console.error('日時選択ページの初期化に失敗しました:', error);
         calendarGrid.innerHTML = '<div class="error">カレンダーの読み込みに失敗しました。再度お試しください。</div>';
     }
-    
-    // 日時選択ページに戻る際に同行者をリセット
-    resetCompanions();
 }
 
-function goToInfoPage() {
+function goToSeatPage() {
     if (!selectedDate || !selectedTime) {
         alert('日時を選択してください。');
         return;
@@ -149,11 +137,22 @@ function goToInfoPage() {
         return;
     }
     
-    showPage('info-page');
-    // 情報入力ページに来る際に同行者をリセット（戻るボタンで戻ってきた場合に対応）
-    resetCompanions();
+    showPage('seat-page');
+    displaySeats();
     
-    // 顧客情報の自動入力（新規追加）
+    // 座席選択ページの次へボタンを非表示にリセット
+    document.getElementById('seat-next-button').classList.remove('show');
+}
+
+function goToInfoPage() {
+    if (!selectedSeat) {
+        alert('座席を選択してください。');
+        return;
+    }
+    
+    showPage('info-page');
+    
+    // 顧客情報の自動入力
     if (isLocalStorageSupported()) {
         setTimeout(() => {
             autoFillCustomerInfo();
@@ -167,12 +166,10 @@ function goToConfirmPage() {
     }
     showPage('confirm-page');
     displayConfirmationDetails();
-    // 確認ページに移動した際に予約送信状態をリセット
     resetSubmissionState();
-    // チェックボックスの状態をリセット
     resetAgreementCheckbox();
     
-    // 情報保存オプションの表示（新規追加）
+    // 情報保存オプションの表示
     if (isLocalStorageSupported()) {
         showSaveInfoOption();
     }
@@ -180,12 +177,6 @@ function goToConfirmPage() {
 
 function goToCompletionPage() {
     showPage('completion-page');
-}
-
-// メニュー選択して次のページへ
-async function selectMenuAndGoNext(menuName) {
-    selectedMenu = { name: menuName, ...menus[menuName] };
-    await goToDatetimePage();
 }
 
 // 月変更
@@ -222,10 +213,7 @@ async function changeMonth(direction) {
 
 // 電話番号のバリデーション（数字のみ対応）
 function validatePhoneNumber(phoneNumber) {
-    // 数字のみをチェック（10桁または11桁）
     const phoneRegex = /^0\d{9,10}$/;
-    
-    // 数字以外の文字が含まれていないかチェック
     const numericOnly = /^\d+$/.test(phoneNumber);
     
     if (!numericOnly) {
@@ -263,28 +251,6 @@ function validateInfoForm() {
         alert(`選択された日付は予約できません。翌日から${APP_CONFIG.maxAdvanceBookingDays}日後まで予約可能です。`);
         goToDatetimePage();
         return false;
-    }
-    
-    for (let i = 0; i < companions.length; i++) {
-        const companion = companions[i];
-        const menu = document.getElementById(`${companion.id}-menu`).value;
-        const companionName = document.getElementById(`${companion.id}-last-name`).value.trim();
-        const companionPhone = document.getElementById(`${companion.id}-first-name`).value.trim();
-        
-        if (!menu || !companionName || !companionPhone) {
-            alert(`同行者の情報を入力してください。`);
-            return false;
-        }
-        
-        // 同行者の電話番号チェック（数字のみ）
-        if (!validatePhoneNumber(companionPhone)) {
-            alert('同行者の正しい電話番号を入力してください。（例：09012345678 - 数字のみ10〜11桁）');
-            return false;
-        }
-        
-        companion.menu = menu;
-        companion.lastName = companionName;
-        companion.firstName = companionPhone;
     }
     
     return true;
@@ -357,41 +323,26 @@ async function submitReservation() {
         
         const mainReservation = {
             reservationNumber: mainReservationNumber,
-            Menu: selectedMenu.name,
+            Menu: selectedSeat.name, // 座席名をメニューとして保存
             "Name-f": document.getElementById('last-name').value.trim(),
-            "Name-s": document.getElementById('first-name').value.trim(), // 電話番号がここに入る
+            "Name-s": document.getElementById('first-name').value.trim(), // 電話番号
             Time: selectedTime,
-            WorkTime: selectedMenu.worktime,
+            WorkTime: selectedGuestCount, // 人数をworktimeとして保存
             date: selectedDate,
             mail: document.getElementById('email').value.trim(),
             states: 0
         };
         
-        const companionReservations = [];
-        for (const companion of companions) {
-            const companionReservationNumber = await generateReservationNumber();
-            companionReservations.push({
-                reservationNumber: companionReservationNumber,
-                Menu: companion.menu,
-                "Name-f": companion.lastName, // 同行者の名前
-                "Name-s": companion.firstName, // 同行者の電話番号
-                Time: selectedTime,
-                WorkTime: menus[companion.menu].worktime,
-                date: selectedDate,
-                mail: "同行者",
-                states: 0
-            });
-        }
+        // レストランでは同行者機能を削除したので、単一予約のみ送信
+        await saveMultipleReservations([mainReservation]);
         
-        await saveMultipleReservations([mainReservation, ...companionReservations]);
-        
-        // 顧客情報の保存処理（新規追加）
+        // 顧客情報の保存処理
         if (isLocalStorageSupported()) {
             handleCustomerInfoSave();
         }
         
         console.log('予約送信処理が正常に完了しました');
-        displayCompletionDetails(mainReservation, companionReservations);
+        displayCompletionDetails(mainReservation);
         goToCompletionPage();
         
     } catch (error) {
@@ -414,10 +365,10 @@ async function submitReservation() {
 
 // フォームデータのリセット
 function resetFormData() {
-    selectedMenu = null;
+    selectedGuestCount = null;
+    selectedSeat = null;
     selectedDate = null;
     selectedTime = null;
-    companions = [];
     
     const forms = document.querySelectorAll('input, select');
     forms.forEach(form => {
@@ -425,17 +376,11 @@ function resetFormData() {
             form.value = '';
         }
     });
-    
-    const companionsContainer = document.getElementById('companions-container');
-    if (companionsContainer) {
-        companionsContainer.innerHTML = '';
-    }
 }
 
 // エラーハンドリング
 window.addEventListener('error', function(event) {
     console.error('JavaScript エラーが発生しました:', event.error);
-    // エラーが発生した場合は予約送信状態をリセット
     if (isSubmittingReservation) {
         resetSubmissionState();
     }
@@ -443,7 +388,6 @@ window.addEventListener('error', function(event) {
 
 window.addEventListener('unhandledrejection', function(event) {
     console.error('未処理のPromise拒否:', event.reason);
-    // Promise拒否が発生した場合は予約送信状態をリセット
     if (isSubmittingReservation) {
         resetSubmissionState();
     }
@@ -460,15 +404,12 @@ window.addEventListener('beforeunload', function(event) {
 
 // ブラウザの戻る/進むボタンでの移動時の処理
 window.addEventListener('popstate', function(event) {
-    // 予約送信中にブラウザの戻るボタンが押された場合の処理
     if (isSubmittingReservation) {
         const shouldContinue = confirm('予約処理中です。本当にページを離れますか？');
         if (!shouldContinue) {
-            // 履歴を元に戻す
             history.pushState(null, null, location.href);
             return false;
         } else {
-            // ユーザーが離脱を選択した場合は状態をリセット
             resetSubmissionState();
         }
     }
