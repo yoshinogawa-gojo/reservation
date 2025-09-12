@@ -239,8 +239,8 @@
 
 .reservation-button {
     display: block;
-    background: #666688;
-    color: #ffffff;
+    background: #EEDDCC;
+    color: #666688;
     padding: 15px 25px;
     border-radius: 25px;
     text-decoration: none;
@@ -255,7 +255,7 @@
 }
 
 .reservation-button:hover {
-    background: #5a5a7a;
+    background: #dcc8a8;
 }
 
 /* メイン予約ボタン */
@@ -265,8 +265,8 @@
 }
 
 .main-reservation-button {
-    background: linear-gradient(135deg, #666688, #5a5a7a);
-    color: #ffffff;
+    background: linear-gradient(135deg, #EEDDCC, #dcc8a8);
+    color: #666688;
     border: none;
     padding: 20px 40px;
     border-radius: 50px;
@@ -274,7 +274,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(102, 102, 136, 0.3);
+    box-shadow: 0 6px 20px rgba(238, 221, 204, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,8 +286,8 @@
 
 .main-reservation-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.4);
-    background: linear-gradient(135deg, #5a5a7a, #4e4e6b);
+    box-shadow: 0 8px 25px rgba(238, 221, 204, 0.6);
+    background: linear-gradient(135deg, #dcc8a8, #c9b085);
 }
 
 .button-icon {
@@ -308,8 +308,8 @@
 }
 
 .select-button {
-    background: #666688;
-    color: #ffffff;
+    background: #EEDDCC;
+    color: #666688;
     padding: 15px 35px;
     width: 100%;
     margin-top: 15px;
@@ -317,14 +317,14 @@
 
 .select-button:hover,
 .select-button:focus {
-    background: #5a5a7a;
-    outline: 2px solid #666688;
+    background: #dcc8a8;
+    outline: 2px solid #EEDDCC;
     outline-offset: 2px;
 }
 
 .next-button {
-    background: #666688;
-    color: #ffffff;
+    background: #EEDDCC;
+    color: #666688;
     padding: 18px 35px;
     width: 100%;
     margin-top: 25px;
@@ -337,30 +337,30 @@
 
 .next-button:hover,
 .next-button:focus {
-    background: #5a5a7a;
-    outline: 2px solid #666688;
+    background: #dcc8a8;
+    outline: 2px solid #EEDDCC;
     outline-offset: 2px;
 }
 
 .back-button {
     background: transparent;
-    color: #666688;
-    border: 2px solid #666688;
+    color: #EEDDCC;
+    border: 2px solid #EEDDCC;
     padding: 15px 25px;
     width: 48%;
 }
 
 .back-button:hover,
 .back-button:focus {
-    background: #666688;
-    color: #ffffff;
-    outline: 2px solid #666688;
+    background: #EEDDCC;
+    color: #666688;
+    outline: 2px solid #EEDDCC;
     outline-offset: 2px;
 }
 
 .confirm-button {
-    background: #666688;
-    color: #ffffff;
+    background: #EEDDCC;
+    color: #666688;
     padding: 15px 25px;
     border: none;
     width: 48%;
@@ -368,15 +368,15 @@
 
 .confirm-button:hover,
 .confirm-button:focus {
-    background: #5a5a7a;
-    outline: 2px solid #666688;
+    background: #dcc8a8;
+    outline: 2px solid #EEDDCC;
     outline-offset: 2px;
 }
 
 .add-companion-button {
     background: transparent;
-    color: #666688;
-    border: 2px solid #666688;
+    color: #EEDDCC;
+    border: 2px solid #EEDDCC;
     padding: 15px 25px;
     width: 100%;
     margin-bottom: 25px;
@@ -384,9 +384,9 @@
 
 .add-companion-button:hover,
 .add-companion-button:focus {
-    background: #666688;
-    color: #ffffff;
-    outline: 2px solid #666688;
+    background: #EEDDCC;
+    color: #666688;
+    outline: 2px solid #EEDDCC;
     outline-offset: 2px;
 }
 
