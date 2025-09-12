@@ -2,12 +2,13 @@
 
 /* 店舗情報 */
 .shop-info {
-    background: #ffffff;
+    background: rgba(237, 221, 204, 0.1);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #EEDDCC;
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.15);
+    border: 2px solid #eeddcc;
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
 }
 
 .shop-logo {
@@ -30,7 +31,7 @@
 
 .shop-subtitle {
     font-size: 16px;
-    color: #666688;
+    color: #eeddcc;
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
@@ -38,13 +39,13 @@
 
 .shop-catchphrase {
     font-size: 15px;
-    color: #666688;
+    color: #3b372b;
     text-align: center;
     margin-bottom: 20px;
     padding: 15px;
-    background: #EEDDCC;
+    background: #eeddcc;
     border-radius: 10px;
-    border: 2px solid #EEDDCC;
+    border: 2px solid #eeddcc;
     font-weight: 600;
 }
 
@@ -52,18 +53,19 @@
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #666688;
+    color: #eeddcc;
     text-align: center;
 }
 
 /* 重要なお知らせ */
 .important-notices {
-    background: #ffffff;
+    background: rgba(237, 221, 204, 0.1);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #EEDDCC;
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.15);
+    border: 2px solid #eeddcc;
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
 }
 
 .notice-content {
@@ -77,9 +79,10 @@
     align-items: flex-start;
     gap: 12px;
     padding: 15px;
-    background: rgba(238, 221, 204, 0.3);
+    background: rgba(237, 221, 204, 0.2);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
-    border-left: 4px solid #EEDDCC;
+    border-left: 4px solid #eeddcc;
 }
 
 .notice-icon {
@@ -89,19 +92,20 @@
 }
 
 .notice-text {
-    color: #666688;
+    color: #eeddcc;
     line-height: 1.6;
     font-size: 14px;
 }
 
 /* 営業時間 */
 .business-hours {
-    background: #ffffff;
+    background: rgba(237, 221, 204, 0.1);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #EEDDCC;
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.15);
+    border: 2px solid #eeddcc;
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
 }
 
 .hours-grid {
@@ -115,40 +119,46 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 15px;
-    background: #f8f9fa;
+    background: rgba(59, 55, 43, 0.3);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
-    border-left: 4px solid #666688;
+    border-left: 4px solid #eeddcc;
 }
 
 .hours-item.weekend {
-    border-left-color: #EEDDCC;
-    background: rgba(238, 221, 204, 0.2);
+    border-left-color: #eeddcc;
+    background: rgba(237, 221, 204, 0.2);
 }
 
 .day-label {
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     font-size: 15px;
 }
 
 .time-value {
-    color: #666688;
+    color: #eeddcc;
     font-weight: bold;
     font-size: 15px;
 }
 
 .hours-item.weekend .time-value {
-    color: #666688;
+    color: #3b372b;
+}
+
+.hours-item.weekend .day-label {
+    color: #3b372b;
 }
 
 /* アクセス情報 */
 .access-info {
-    background: #ffffff;
+    background: rgba(237, 221, 204, 0.1);
+    backdrop-filter: blur(10px);
     padding: 25px;
     border-radius: 15px;
     margin-bottom: 30px;
-    border: 2px solid #EEDDCC;
-    box-shadow: 0 8px 25px rgba(102, 102, 136, 0.15);
+    border: 2px solid #eeddcc;
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.15);
 }
 
 .access-content {
@@ -159,20 +169,21 @@
 
 .access-section {
     padding: 15px;
-    background: rgba(238, 221, 204, 0.3);
+    background: rgba(237, 221, 204, 0.2);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
-    border-left: 4px solid #EEDDCC;
+    border-left: 4px solid #eeddcc;
 }
 
 .access-subtitle {
     font-size: 16px;
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     margin-bottom: 10px;
 }
 
 .access-text {
-    color: #666688;
+    color: #eeddcc;
     line-height: 1.6;
     font-size: 14px;
     margin-bottom: 0;
@@ -181,20 +192,21 @@
 .navigation-note {
     margin-top: 15px;
     padding: 12px;
-    background: rgba(238, 221, 204, 0.5);
+    background: rgba(237, 221, 204, 0.3);
+    backdrop-filter: blur(5px);
     border-radius: 8px;
-    border: 1px solid #EEDDCC;
+    border: 1px solid #eeddcc;
 }
 
 .note-title {
     font-weight: bold;
-    color: #666688;
+    color: #eeddcc;
     margin-bottom: 5px;
     font-size: 13px;
 }
 
 .note-text {
-    color: #666688;
+    color: #eeddcc;
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 0;
@@ -206,9 +218,10 @@
     justify-content: center;
     gap: 10px;
     padding: 15px;
-    background: rgba(238, 221, 204, 0.4);
+    background: rgba(237, 221, 204, 0.3);
+    backdrop-filter: blur(5px);
     border-radius: 10px;
-    border: 2px solid #EEDDCC;
+    border: 2px solid #eeddcc;
 }
 
 .parking-icon {
@@ -216,7 +229,7 @@
 }
 
 .parking-text {
-    color: #666688;
+    color: #eeddcc;
     font-weight: bold;
     font-size: 16px;
 }
@@ -239,8 +252,8 @@
 
 .reservation-button {
     display: block;
-    background: #EEDDCC;
-    color: #666688;
+    background: #eeddcc;
+    color: #3b372b;
     padding: 15px 25px;
     border-radius: 25px;
     text-decoration: none;
@@ -265,8 +278,8 @@
 }
 
 .main-reservation-button {
-    background: linear-gradient(135deg, #EEDDCC, #dcc8a8);
-    color: #666688;
+    background: linear-gradient(135deg, #eeddcc, #dcc8a8);
+    color: #3b372b;
     border: none;
     padding: 20px 40px;
     border-radius: 50px;
@@ -274,7 +287,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(238, 221, 204, 0.4);
+    box-shadow: 0 6px 20px rgba(237, 221, 204, 0.4);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -286,7 +299,7 @@
 
 .main-reservation-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(238, 221, 204, 0.6);
+    box-shadow: 0 8px 25px rgba(237, 221, 204, 0.6);
     background: linear-gradient(135deg, #dcc8a8, #c9b085);
 }
 
@@ -308,8 +321,8 @@
 }
 
 .select-button {
-    background: #EEDDCC;
-    color: #666688;
+    background: #eeddcc;
+    color: #3b372b;
     padding: 15px 35px;
     width: 100%;
     margin-top: 15px;
@@ -318,13 +331,13 @@
 .select-button:hover,
 .select-button:focus {
     background: #dcc8a8;
-    outline: 2px solid #EEDDCC;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
 .next-button {
-    background: #EEDDCC;
-    color: #666688;
+    background: #eeddcc;
+    color: #3b372b;
     padding: 18px 35px;
     width: 100%;
     margin-top: 25px;
@@ -338,29 +351,29 @@
 .next-button:hover,
 .next-button:focus {
     background: #dcc8a8;
-    outline: 2px solid #EEDDCC;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
 .back-button {
     background: transparent;
-    color: #EEDDCC;
-    border: 2px solid #EEDDCC;
+    color: #eeddcc;
+    border: 2px solid #eeddcc;
     padding: 15px 25px;
     width: 48%;
 }
 
 .back-button:hover,
 .back-button:focus {
-    background: #EEDDCC;
-    color: #666688;
-    outline: 2px solid #EEDDCC;
+    background: #eeddcc;
+    color: #3b372b;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
 .confirm-button {
-    background: #EEDDCC;
-    color: #666688;
+    background: #eeddcc;
+    color: #3b372b;
     padding: 15px 25px;
     border: none;
     width: 48%;
@@ -369,14 +382,14 @@
 .confirm-button:hover,
 .confirm-button:focus {
     background: #dcc8a8;
-    outline: 2px solid #EEDDCC;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
 .add-companion-button {
     background: transparent;
-    color: #EEDDCC;
-    border: 2px solid #EEDDCC;
+    color: #eeddcc;
+    border: 2px solid #eeddcc;
     padding: 15px 25px;
     width: 100%;
     margin-bottom: 25px;
@@ -384,9 +397,9 @@
 
 .add-companion-button:hover,
 .add-companion-button:focus {
-    background: #EEDDCC;
-    color: #666688;
-    outline: 2px solid #EEDDCC;
+    background: #eeddcc;
+    color: #3b372b;
+    outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
 
