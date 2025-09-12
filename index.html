@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hair works 天 - 予約サイト</title>
+    <link rel="stylesheet" href="base.css">
+    <link rel="stylesheet" href="components.css">
+    <link rel="stylesheet" href="pages.css">
+    <link rel="stylesheet" href="responsive.css">
+    <link rel="stylesheet" href="storage.css">
+</head>
+<body>
+    <div class="main-header">
+        <div class="header-content">
+            <a href="https://www.yunokinosato.com/" target="_blank" class="header-logo">
+                <img src="yunokinosato.png" alt="柚木の湯 ロゴ" onerror="this.style.display='none'" class="logo-image">
+            </a>
+            <a href="https://maps.google.com/?q=静岡県静岡市葵区東静岡１丁目１−５７" target="_blank" class="header-map-button">
+                📍 Google Mapで見る
+            </a>
+        </div>
+    </div>
+    
+    <div class="wave-decoration"></div>
+    
+    <!-- トップページ -->
+    <div id="top-page" class="page active">
+        <div class="container">
+            <div class="shop-info">
+                <div class="shop-logo">
+                    <img src="hairworksten-logo.png" alt="Hair works 天 ロゴ" class="shop-logo-image">
+                </div>
+                <div class="shop-catchphrase">カットのみでもご利用頂けます</div>
+                
+                <button class="reservation-button" onclick="goToMenuPage()">
+                    ご予約はこちら
+                </button>
+            </div>
+
+            <!-- まつかるセクション -->
+            <div class="matsukaru-info">
+                <div class="matsukaru-logo">
+                    <img src="matsukaru-logo.png" alt="eyelash salon まつかる ロゴ" class="matsukaru-logo-image">
+                </div>
+                <div class="shop-catchphrase">まつげパーマのみでもご利用頂けます</div>
+                <a href="https://beauty.hotpepper.jp/kr/slnH000688430/" target="_blank" class="reservation-button">
+                    ご予約はこちら
+                </a>
+            </div>
+
+            <!-- 重要なお知らせ -->
+            <div class="important-notices">
+                <h2 class="section-title">重要なお知らせ</h2>
+                <div class="notice-content">
+                    <!-- お知らせ内容はJavaScriptで動的に読み込まれます -->
+                    <div class="loading">重要なお知らせを読み込んでいます...</div>
+                </div>
+            </div>
+
+            <!-- 営業時間 -->
+            <div class="business-hours">
+                <h2 class="section-title">営業時間</h2>
+                <div class="hours-grid">
+                    <div class="hours-item">
+                        <span class="day-label">平日</span>
+                        <span class="time-value">10:00 ～ 19:00（LO18:00）</span>
+                    </div>
+                    <div class="hours-item weekend">
+                        <span class="day-label">土曜日・日曜日</span>
+                        <span class="time-value">09:00 ～ 18:00（LO17:00）</span>
+                    </div>
+                    <div class="hours-item holiday">
+                        <span class="day-label">祝日</span>
+                        <span class="time-value">09:00 ～ 18:00（LO17:00）</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- アクセス方法 -->
+            <div class="access-info">
+                <h2 class="section-title">アクセス方法</h2>
+                <div class="shop-address">
+                    〒420-0817<br>
+                    静岡県静岡市葵区東静岡１丁目１−５７
+                </div>
+                <div class="access-content">
+                    <div class="access-section">
+                        <h3 class="access-subtitle">🚃 電車でお越しの方</h3>
+                        <p class="access-text">東海道 東静岡駅北口より徒歩1分。<br>静岡鉄道柚木駅・長沼駅より徒歩9分。</p>
+                    </div>
+                    <div class="access-section">
+                        <h3 class="access-subtitle">🚗 お車でお越しの方</h3>
+                        <p class="access-text">清水IC 静岡IC 新静岡IC各方面より15分。<br>国道1号線バイパス千代田上土より10分。静岡駅より10分。</p>
+                        <div class="navigation-note">
+                            <p class="note-title">※カーナビをご利用の方</p>
+                            <p class="note-text">国道1号線のマークイズ静岡を目指してください。<br>国道1号線からマークイズ静岡横、東静岡大橋の側道を抜けて左折してください。</p>
+                        </div>
+                    </div>
+                    <div class="parking-info">
+                        <span class="parking-icon">🅿️</span>
+                        <span class="parking-text">駐車場240台完備</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- メインの予約ボタン -->
+            <div class="main-reservation-section">
+                <button class="main-reservation-button" onclick="goToMenuPage()">
+                    <span class="button-icon">✂️</span>
+                    <span class="button-text">ご予約はこちら</span>
+                    <span class="button-arrow">→</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- メニュー選択ページ -->
+    <div id="menu-page" class="page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">メニューを選択してください</div>
+            </div>
+
+            <div class="menu-section">
+                <div id="menu-grid" class="menu-grid">
+                    <div class="loading">メニューを読み込んでいます...</div>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="goToTopPage()">戻る</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 日時選択ページ -->
+    <div id="datetime-page" class="page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">日時を選択してください</div>
+            </div>
+
+            <div class="calendar-container">
+                <div class="calendar-header">
+                    <button class="calendar-nav" onclick="changeMonth(-1)">◀</button>
+                    <div class="month-year" id="month-year"></div>
+                    <button class="calendar-nav" onclick="changeMonth(1)">▶</button>
+                </div>
+                <div class="calendar-wrapper">
+                    <div class="calendar-grid" id="calendar-grid"></div>
+                </div>
+            </div>
+
+            <div id="time-slots-container" class="time-slots-container">
+                <h3 class="time-selection-title">時間を選択してください</h3>
+                <div class="time-slots" id="time-slots"></div>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="goToMenuPage()">戻る</button>
+                <button class="next-button" id="datetime-next-button" onclick="goToInfoPage()">次へ</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 情報入力ページ -->
+    <div id="info-page" class="page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">お客様情報を入力してください</div>
+            </div>
+
+            <div class="form-container">
+                <div class="form-group">
+                    <label class="form-label">お名前 *</label>
+                    <input type="text" class="form-input" id="last-name" placeholder="例：山田太郎" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">電話番号 *</label>
+                    <input type="number" class="form-input" id="first-name" placeholder="例：09012345678" required pattern="[0-9]*" inputmode="numeric">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">メールアドレス *</label>
+                    <input type="email" class="form-input" id="email" placeholder="example@email.com" required>
+                </div>
+
+                <button class="add-companion-button" onclick="addCompanion()">
+                    同行者を追加する（1名まで）
+                </button>
+
+                <div id="companions-container"></div>
+
+                <div class="button-group">
+                    <button class="back-button" onclick="goToDatetimePage()">戻る</button>
+                    <button class="confirm-button" onclick="goToConfirmPage()">確認</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 確認ページ -->
+    <div id="confirm-page" class="page">
+        <div class="container">
+            <div class="page-header">
+                <div class="page-title">予約内容を確認してください</div>
+            </div>
+
+            <div class="confirmation-section">
+                <div class="confirmation-title">予約情報</div>
+                <div id="confirmation-details"></div>
+            </div>
+
+            <div class="reservation-notes">
+                <h4>予約に関する注意事項</h4>
+                <ul>
+                    <li>予約受付締切：前日の23:59まで</li>
+                    <li>キャンセル締切：1時間前まで</li>
+                </ul>
+            </div>
+
+            <div class="important-agreement">
+                <h4>重要なお願い</h4>
+                <div class="agreement-text">
+                    ※ご予約時間はあくまで目安となります。<br>
+                    前のお客様の施術内容により、開始時間が前後する場合がございますので、恐れ入りますが、ご予約時間の5分前までにお越しください。<br>
+                    また、ご予約時間を過ぎてもご来店が確認できない場合は、次のお客様をご案内させていただくことがございますので、予めご了承ください。
+                </div>
+                <div class="agreement-checkbox">
+                    <label class="checkbox-container">
+                        <input type="checkbox" id="agreement-checkbox">
+                        <span class="checkmark"></span>
+                        上記の内容に同意します
+                    </label>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button class="back-button" onclick="goToInfoPage()">戻る</button>
+                <button class="confirm-button" id="submit-button" onclick="submitReservation()" disabled>予約する</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- 完了ページ -->
+    <div id="completion-page" class="page">
+        <div class="container">
+            <div class="completion-container">
+                <div class="completion-title">予約が完了しました</div>
+                <div class="reservation-number" id="completion-reservation-number"></div>
+                <div id="completion-details"></div>
+                <div class="completion-message">
+                    この度はご予約ありがとうございます。<br>
+                    ご指定のメールアドレスにご予約の確認メールを送信しました。<br>
+                    お客様のご来店を心よりお待ちしております。
+                </div>
+                
+                <div class="email-notice">
+                    <div class="email-notice-icon">📧</div>
+                    <div class="email-notice-text">
+                        予約完了メールが迷惑メールフォルダに入る場合がございます。<br>
+                        届かない場合はそちらもご確認ください。
+                    </div>
+                </div>
+                <a href="https://hairworksten.github.io/reservation-conference" target="_blank" class="check-reservation-button">
+                    ご予約の確認・変更はこちらから
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="api.js"></script>
+    <script src="ui.js"></script>
+    <script src="storage.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,249 @@
+/* Hair Works天 予約サイト - 顧客情報保存機能のスタイル */
+
+/* 自動入力通知 */
+.autofill-notification {
+    background: linear-gradient(135deg, #4CAF50, #45a049);
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 15px;
+    margin-bottom: 20px;
+    animation: slideInFromTop 0.3s ease-out;
+    transition: opacity 0.3s ease;
+}
+
+@keyframes slideInFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.autofill-content {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: #ffffff;
+}
+
+.autofill-icon {
+    font-size: 20px;
+    flex-shrink: 0;
+}
+
+.autofill-text {
+    flex: 1;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.autofill-clear-btn {
+    background: transparent;
+    color: #ffffff;
+    border: 2px solid #ffffff;
+    padding: 6px 12px;
+    border-radius: 15px;
+    font-size: 12px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.autofill-clear-btn:hover,
+.autofill-clear-btn:focus {
+    background: #ffffff;
+    color: #4CAF50;
+    outline: 2px solid #ffffff;
+    outline-offset: 2px;
+}
+
+/* 情報保存オプション */
+.save-info-option {
+    background: #1a2a42;
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 25px;
+}
+
+.save-info-content {
+    text-align: center;
+}
+
+.save-info-checkbox {
+    display: inline-flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 15px;
+    color: #ffffff;
+    user-select: none;
+    padding: 10px;
+    margin-bottom: 10px;
+}
+
+.save-info-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.save-checkmark {
+    height: 20px;
+    width: 20px;
+    background-color: #243552;
+    border: 2px solid #4CAF50;
+    border-radius: 4px;
+    margin-right: 12px;
+    position: relative;
+    transition: all 0.2s ease;
+}
+
+.save-info-checkbox:hover input ~ .save-checkmark {
+    background-color: #2a3f5f;
+}
+
+.save-info-checkbox input:checked ~ .save-checkmark {
+    background-color: #4CAF50;
+}
+
+.save-checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+.save-info-checkbox input:checked ~ .save-checkmark:after {
+    display: block;
+}
+
+.save-info-checkbox .save-checkmark:after {
+    left: 6px;
+    top: 2px;
+    width: 4px;
+    height: 10px;
+    border: solid #ffffff;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+.save-info-note {
+    color: #999;
+    font-size: 12px;
+    line-height: 1.5;
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 6px;
+    border-left: 3px solid #4CAF50;
+}
+
+/* プライバシー情報 */
+.privacy-info {
+    background: rgba(76, 175, 80, 0.1);
+    border: 2px solid #4CAF50;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+}
+
+.privacy-info h4 {
+    color: #4CAF50;
+    font-size: 16px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.privacy-info ul {
+    list-style: none;
+    color: #ffffff;
+    padding: 0;
+}
+
+.privacy-info li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+    line-height: 1.6;
+    font-size: 14px;
+}
+
+.privacy-info li:before {
+    content: "🔒";
+    position: absolute;
+    left: 0;
+    font-size: 12px;
+}
+
+/* モバイル対応 */
+@media screen and (max-width: 768px) {
+    .autofill-content {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .autofill-text {
+        order: 1;
+    }
+
+    .autofill-clear-btn {
+        order: 2;
+        align-self: center;
+    }
+
+    .save-info-checkbox {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;
+    }
+
+    .save-checkmark {
+        order: 1;
+        margin-right: 0;
+        margin-bottom: 5px;
+    }
+
+    .privacy-info li {
+        font-size: 13px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .autofill-notification,
+    .save-info-option,
+    .privacy-info {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+
+    .autofill-text {
+        font-size: 13px;
+    }
+
+    .autofill-clear-btn {
+        font-size: 11px;
+        padding: 5px 10px;
+    }
+
+    .save-info-checkbox {
+        font-size: 14px;
+    }
+
+    .save-info-note {
+        font-size: 11px;
+    }
+
+    .privacy-info h4 {
+        font-size: 15px;
+    }
+
+    .privacy-info li {
+        font-size: 12px;
+    }
+}

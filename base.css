@@ -1,0 +1,208 @@
+/* Hair Works天 予約サイト - 基本スタイル */
+
+/* ベースリセット */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Hiragino Sans', 'Meiryo', sans-serif;
+    background: #0a1628;
+    color: #ffffff;
+    line-height: 1.6;
+    min-height: 100vh;
+    color-scheme: dark;
+    overflow-x: hidden;
+}
+
+/* ヘッダー */
+.main-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: #0f1a2e;
+    z-index: 1000;
+    padding: 5px 0;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    border-bottom: 1px solid #ff8c42;
+}
+
+.header-content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 70px;
+    box-sizing: border-box;
+}
+
+/* ヘッダーロゴ */
+.header-logo {
+    width: auto;
+    height: 60px;
+    max-height: 60px;
+    background: transparent;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: bold;
+    color: #ffffff;
+    position: relative;
+    overflow: visible;
+    flex-shrink: 0;
+    text-decoration: none;
+}
+
+.header-logo .logo-image,
+.header-logo img {
+    height: 200px;
+    max-height: 160px;
+    width: auto;
+    max-width: none;
+    object-fit: contain;
+    display: block;
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+}
+
+.header-logo::after {
+    content: "柚木の湯";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    white-space: nowrap;
+    display: block;
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.header-logo.has-image::after {
+    display: none;
+}
+
+.header-logo:hover,
+.header-logo:focus {
+    outline: 2px solid #ff8c42;
+    outline-offset: 2px;
+}
+
+/* ヘッダーマップボタン */
+.header-map-button {
+    background: #ff8c42;
+    color: #0a1628;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 36px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-map-button:hover,
+.header-map-button:focus {
+    background: #e67a35;
+    outline: 2px solid #ff8c42;
+    outline-offset: 2px;
+}
+
+/* メインコンテナ */
+.container {
+    max-width: 480px;
+    margin: 0 auto;
+    padding: 90px 20px 20px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.page-header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px;
+    background: #1a2a42;
+    border-radius: 10px;
+    border: 1px solid #ff8c42;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #ffffff;
+    margin-bottom: 10px;
+}
+
+/* ページ表示制御 */
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+/* 共通タイトル */
+.section-title {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ff8c42;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 読み込み・エラー表示 */
+.loading {
+    text-align: center;
+    padding: 30px;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.loading::after {
+    content: '...';
+    animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+    0%, 20% { content: ''; }
+    40% { content: '.'; }
+    60% { content: '..'; }
+    80%, 100% { content: '...'; }
+}
+
+.error {
+    background: #2a1f1f;
+    color: #ff6b6b;
+    border: 2px solid #ff4757;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 25px 0;
+    text-align: center;
+}
+
+.warning {
+    background: #2a2318;
+    color: #ffa726;
+    border: 2px solid #ff9800;
+    padding: 16px;
+    border-radius: 6px;
+    margin: 16px 0;
+}
