@@ -118,14 +118,25 @@ function selectGuestCount(count) {
 function displaySeats() {
     const seatGrid = document.getElementById('seat-grid');
     
-    if (Object.keys(menus).length === 0) {
-        seatGrid.innerHTML = '<div class="error">座席情報がありません。管理者にお問い合わせください。</div>';
+    console.log('displaySeats 呼び出し - menus:', menus);
+    console.log('menus のキー数:', Object.keys(menus).length);
+    
+    if (!menus || Object.keys(menus).length === 0) {
+        console.error('座席データが空です:', menus);
+        seatGrid.innerHTML = `
+            <div class="error">
+                <p>座席情報がありません。管理者にお問い合わせください。</p>
+                <button onclick="loadMenus()" class="select-button" style="margin-top: 15px;">再読込</button>
+            </div>
+        `;
         return;
     }
     
     seatGrid.innerHTML = '';
     
     Object.entries(menus).forEach(([seatName, seatData]) => {
+        console.log(`座席追加: ${seatName}`, seatData);
+        
         const seatItem = document.createElement('div');
         seatItem.className = 'seat-item';
         seatItem.onclick = () => selectSeat(seatName, seatData);
@@ -143,6 +154,8 @@ function displaySeats() {
         
         seatGrid.appendChild(seatItem);
     });
+    
+    console.log(`座席表示完了: ${Object.keys(menus).length}件`);
 }
 
 // 座席選択
