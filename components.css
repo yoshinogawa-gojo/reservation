@@ -1,13 +1,13 @@
-/* Hair Works天 予約サイト - コンポーネントスタイル */
+/* レストランよしの川 予約サイト - コンポーネントスタイル */
 
 /* 店舗情報 */
 .shop-info {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 30px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .shop-logo {
@@ -30,7 +30,7 @@
 
 .shop-subtitle {
     font-size: 16px;
-    color: #ff8c42;
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 10px;
     font-weight: bold;
@@ -38,78 +38,32 @@
 
 .shop-catchphrase {
     font-size: 15px;
-    color: #ffffff;
+    color: #2c3e50;
     text-align: center;
     margin-bottom: 20px;
-    padding: 10px;
-    background: rgba(255, 140, 66, 0.1);
-    border-radius: 8px;
-    border: 1px solid #ff8c42;
+    padding: 15px;
+    background: linear-gradient(135deg, rgba(44, 62, 80, 0.05), rgba(44, 62, 80, 0.02));
+    border-radius: 10px;
+    border: 2px solid #2c3e50;
+    font-weight: 600;
 }
 
 .shop-address {
     font-size: 16px;
     line-height: 1.8;
     margin-bottom: 20px;
-    color: #ffffff;
+    color: #2c3e50;
     text-align: center;
-}
-
-/* まつかるセクション */
-.matsukaru-info {
-    background: #1a2a42;
-    padding: 25px;
-    border-radius: 10px;
-    margin-bottom: 30px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-    text-align: center;
-}
-
-.matsukaru-logo {
-    margin-bottom: 20px;
-    height: 120px;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.matsukaru-logo-image {
-    max-width: none;
-    height: 100px;
-    width: auto;
-    object-fit: contain;
-    object-position: center;
-}
-
-.matsukaru-reservation-button {
-    display: block;
-    background: #ff8c42;
-    color: #0a1628;
-    padding: 15px 25px;
-    border-radius: 25px;
-    text-decoration: none;
-    text-align: center;
-    font-weight: bold;
-    transition: background-color 0.2s ease;
-    font-size: 16px;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-.matsukaru-reservation-button:hover {
-    background: #e67a35;
 }
 
 /* 重要なお知らせ */
 .important-notices {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 30px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .notice-content {
@@ -123,9 +77,9 @@
     align-items: flex-start;
     gap: 12px;
     padding: 15px;
-    background: rgba(255, 140, 66, 0.05);
-    border-radius: 8px;
-    border-left: 3px solid #ff8c42;
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #2c3e50;
 }
 
 .notice-icon {
@@ -135,19 +89,19 @@
 }
 
 .notice-text {
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1.6;
     font-size: 14px;
 }
 
 /* 営業時間 */
 .business-hours {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 30px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .hours-grid {
@@ -161,49 +115,40 @@
     justify-content: space-between;
     align-items: center;
     padding: 12px 15px;
-    background: #243552;
-    border-radius: 8px;
-    border-left: 4px solid #ff8c42;
+    background: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #2c3e50;
 }
 
 .hours-item.weekend {
-    border-left-color: #4CAF50;
-    background: rgba(76, 175, 80, 0.1);
-}
-
-.hours-item.holiday {
-    border-left-color: #FF9800;
-    background: rgba(255, 152, 0, 0.1);
+    border-left-color: #17a2b8;
+    background: rgba(23, 162, 184, 0.1);
 }
 
 .day-label {
     font-weight: bold;
-    color: #ffffff;
+    color: #2c3e50;
     font-size: 15px;
 }
 
 .time-value {
-    color: #ff8c42;
+    color: #2c3e50;
     font-weight: bold;
     font-size: 15px;
 }
 
 .hours-item.weekend .time-value {
-    color: #4CAF50;
-}
-
-.hours-item.holiday .time-value {
-    color: #FF9800;
+    color: #17a2b8;
 }
 
 /* アクセス情報 */
 .access-info {
-    background: #1a2a42;
+    background: #ffffff;
     padding: 25px;
-    border-radius: 10px;
+    border-radius: 15px;
     margin-bottom: 30px;
-    border: 1px solid #ff8c42;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border: 2px solid #2c3e50;
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.15);
 }
 
 .access-content {
@@ -214,20 +159,20 @@
 
 .access-section {
     padding: 15px;
-    background: rgba(255, 140, 66, 0.05);
-    border-radius: 8px;
-    border-left: 3px solid #ff8c42;
+    background: rgba(44, 62, 80, 0.05);
+    border-radius: 10px;
+    border-left: 4px solid #2c3e50;
 }
 
 .access-subtitle {
     font-size: 16px;
     font-weight: bold;
-    color: #ff8c42;
+    color: #2c3e50;
     margin-bottom: 10px;
 }
 
 .access-text {
-    color: #ffffff;
+    color: #2c3e50;
     line-height: 1.6;
     font-size: 14px;
     margin-bottom: 0;
@@ -236,20 +181,20 @@
 .navigation-note {
     margin-top: 15px;
     padding: 12px;
-    background: rgba(255, 140, 66, 0.1);
-    border-radius: 6px;
-    border: 1px solid rgba(255, 140, 66, 0.3);
+    background: rgba(44, 62, 80, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(44, 62, 80, 0.3);
 }
 
 .note-title {
     font-weight: bold;
-    color: #ff8c42;
+    color: #2c3e50;
     margin-bottom: 5px;
     font-size: 13px;
 }
 
 .note-text {
-    color: #ffffff;
+    color: #2c3e50;
     font-size: 13px;
     line-height: 1.5;
     margin-bottom: 0;
@@ -261,9 +206,9 @@
     justify-content: center;
     gap: 10px;
     padding: 15px;
-    background: linear-gradient(135deg, rgba(76, 175, 80, 0.1), rgba(76, 175, 80, 0.05));
-    border-radius: 8px;
-    border: 2px solid #4CAF50;
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1), rgba(40, 167, 69, 0.05));
+    border-radius: 10px;
+    border: 2px solid #28a745;
 }
 
 .parking-icon {
@@ -271,7 +216,7 @@
 }
 
 .parking-text {
-    color: #4CAF50;
+    color: #28a745;
     font-weight: bold;
     font-size: 16px;
 }
@@ -279,10 +224,66 @@
 /* ボタン共通スタイル */
 .reservation-button,
 .select-button,
-.next-button,
+.next-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 18px 35px;
+    width: 100%;
+    margin-top: 25px;
+    display: none;
+}
+
+.next-button.show {
+    display: block;
+}
+
+.next-button:hover,
+.next-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.back-button {
+    background: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+    padding: 15px 25px;
+    width: 48%;
+}
+
+.back-button:hover,
+.back-button:focus {
+    background: #2c3e50;
+    color: #ffffff;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.confirm-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 15px 25px;
+    border: none;
+    width: 48%;
+}
+
+.confirm-button:hover,
+.confirm-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 4%;
+    box-sizing: border-box;
+},
 .confirm-button,
-.back-button,
-.add-companion-button {
+.back-button {
     font-size: 16px;
     font-weight: bold;
     cursor: pointer;
@@ -294,8 +295,8 @@
 
 .reservation-button {
     display: block;
-    background: #ff8c42;
-    color: #0a1628;
+    background: #2c3e50;
+    color: #ffffff;
     padding: 15px 25px;
     border-radius: 25px;
     text-decoration: none;
@@ -310,7 +311,7 @@
 }
 
 .reservation-button:hover {
-    background: #e67a35;
+    background: #34495e;
 }
 
 /* メイン予約ボタン */
@@ -320,7 +321,7 @@
 }
 
 .main-reservation-button {
-    background: linear-gradient(135deg, #ff8c42, #e67a35);
+    background: linear-gradient(135deg, #2c3e50, #34495e);
     color: #ffffff;
     border: none;
     padding: 20px 40px;
@@ -329,7 +330,7 @@
     font-weight: bold;
     cursor: pointer;
     transition: all 0.3s ease;
-    box-shadow: 0 6px 20px rgba(255, 140, 66, 0.3);
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -341,8 +342,8 @@
 
 .main-reservation-button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 140, 66, 0.4);
-    background: linear-gradient(135deg, #e67a35, #d66a25);
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+    background: linear-gradient(135deg, #34495e, #2c3e50);
 }
 
 .button-icon {
@@ -363,8 +364,8 @@
 }
 
 .select-button {
-    background: #ff8c42;
-    color: #0a1628;
+    background: #2c3e50;
+    color: #ffffff;
     padding: 15px 35px;
     width: 100%;
     margin-top: 15px;
@@ -372,83 +373,9 @@
 
 .select-button:hover,
 .select-button:focus {
-    background: #e67a35;
-    outline: 2px solid #ff8c42;
+    background: #34495e;
+    outline: 2px solid #2c3e50;
     outline-offset: 2px;
 }
 
-.next-button {
-    background: #ff8c42;
-    color: #0a1628;
-    padding: 18px 35px;
-    width: 100%;
-    margin-top: 25px;
-    display: none;
-}
-
-.next-button.show {
-    display: block;
-}
-
-.next-button:hover,
-.next-button:focus {
-    background: #e67a35;
-    outline: 2px solid #ff8c42;
-    outline-offset: 2px;
-}
-
-.back-button {
-    background: transparent;
-    color: #ffffff;
-    border: 2px solid #ffffff;
-    padding: 15px 25px;
-    width: 48%;
-}
-
-.back-button:hover,
-.back-button:focus {
-    background: #ffffff;
-    color: #0a1628;
-    outline: 2px solid #ffffff;
-    outline-offset: 2px;
-}
-
-.confirm-button {
-    background: #ff8c42;
-    color: #0a1628;
-    padding: 15px 25px;
-    border: none;
-    width: 48%;
-}
-
-.confirm-button:hover,
-.confirm-button:focus {
-    background: #e67a35;
-    outline: 2px solid #ff8c42;
-    outline-offset: 2px;
-}
-
-.add-companion-button {
-    background: transparent;
-    color: #ff8c42;
-    border: 2px solid #ff8c42;
-    padding: 15px 25px;
-    width: 100%;
-    margin-bottom: 25px;
-}
-
-.add-companion-button:hover,
-.add-companion-button:focus {
-    background: #ff8c42;
-    color: #0a1628;
-    outline: 2px solid #ff8c42;
-    outline-offset: 2px;
-}
-
-.button-group {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 25px;
-    gap: 4%;
-    box-sizing: border-box;
-}
+.next-button
