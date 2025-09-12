@@ -138,7 +138,28 @@ function goToSeatPage() {
     }
     
     showPage('seat-page');
-    displaySeats();
+    
+    // 座席情報が読み込まれていない場合は再読み込み
+    if (!menus || Object.keys(menus).length === 0) {
+        console.log('座席情報が未読み込みのため再読み込み開始');
+        const seatGrid = document.getElementById('seat-grid');
+        seatGrid.innerHTML = '<div class="loading">座席情報を読み込んでいます...</div>';
+        
+        loadMenus().then(() => {
+            console.log('座席情報再読み込み完了:', menus);
+            displaySeats();
+        }).catch((error) => {
+            console.error('座席情報再読み込み失敗:', error);
+            seatGrid.innerHTML = `
+                <div class="error">
+                    <p>座席情報の読み込みに失敗しました。</p>
+                    <button onclick="loadMenus().then(() => displaySeats())" class="select-button">再試行</button>
+                </div>
+            `;
+        });
+    } else {
+        displaySeats();
+    }
     
     // 座席選択ページの次へボタンを非表示にリセット
     document.getElementById('seat-next-button').classList.remove('show');
