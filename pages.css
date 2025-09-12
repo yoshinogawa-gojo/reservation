@@ -637,7 +637,7 @@
 .check-reservation-button:hover,
 .check-reservation-button:focus {
     background: #eeddcc;
-    color: #3b372b;
+    color: #1a237e;
     outline: 2px solid #eeddcc;
     outline-offset: 2px;
 }
