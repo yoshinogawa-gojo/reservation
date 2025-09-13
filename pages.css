@@ -359,6 +359,177 @@
     color: #2c3e50;
 }
 
+/* ボタン共通スタイル */
+.next-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 18px 35px;
+    width: 100%;
+    margin-top: 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+    display: none; /* 初期状態は非表示 */
+}
+
+.next-button.show {
+    display: block; /* showクラスで表示 */
+}
+
+.next-button:hover,
+.next-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.select-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 15px 35px;
+    width: 100%;
+    margin-top: 15px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+}
+
+.select-button:hover,
+.select-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.back-button {
+    background: transparent;
+    color: #2c3e50;
+    border: 2px solid #2c3e50;
+    padding: 15px 25px;
+    width: 48%;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+}
+
+.back-button:hover,
+.back-button:focus {
+    background: #2c3e50;
+    color: #ffffff;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.confirm-button {
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 15px 25px;
+    border: none;
+    width: 48%;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    min-height: 44px;
+}
+
+.confirm-button:hover,
+.confirm-button:focus {
+    background: #34495e;
+    outline: 2px solid #2c3e50;
+    outline-offset: 2px;
+}
+
+.button-group {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 25px;
+    gap: 4%;
+    box-sizing: border-box;
+}
+
+.reservation-button {
+    display: block;
+    background: #2c3e50;
+    color: #ffffff;
+    padding: 15px 25px;
+    border-radius: 25px;
+    text-decoration: none;
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.2s ease;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+}
+
+.reservation-button:hover {
+    background: #34495e;
+}
+
+/* メイン予約ボタン */
+.main-reservation-section {
+    text-align: center;
+    margin: 40px 0;
+}
+
+.main-reservation-button {
+    background: linear-gradient(135deg, #2c3e50, #34495e);
+    color: #ffffff;
+    border: none;
+    padding: 20px 40px;
+    border-radius: 50px;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    min-height: 60px;
+    max-width: 300px;
+    margin: 0 auto;
+}
+
+.main-reservation-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(44, 62, 80, 0.4);
+    background: linear-gradient(135deg, #34495e, #2c3e50);
+}
+
+.button-icon {
+    font-size: 20px;
+}
+
+.button-text {
+    font-size: 16px;
+}
+
+.button-arrow {
+    font-size: 18px;
+    transition: transform 0.2s ease;
+}
+
+.main-reservation-button:hover .button-arrow {
+    transform: translateX(3px);
+}
+
 /* 確認ページ */
 .confirmation-section {
     background: #ffffff;
