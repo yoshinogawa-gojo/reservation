@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initAgreementCheckbox();
     console.log('initAgreementCheckbox() を呼び出しました');
     
-    // 人数選択画面の初期化
+    // 人数選択画面の初期化（初期表示なので必須）
     displayGuestCounts();
     console.log('displayGuestCounts() を呼び出しました');
     
@@ -81,14 +81,10 @@ function resetAgreementCheckbox() {
 }
 
 // ページ遷移関数群
-function goToTopPage() {
-    showPage('top-page');
-    resetFormData();
-    resetSubmissionState();
-}
-
 function goToGuestCountPage() {
     showPage('guest-count-page');
+    resetFormData();
+    resetSubmissionState();
     displayGuestCounts();
 }
 
