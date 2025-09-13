@@ -129,7 +129,7 @@ function isValidReservationDate(dateString) {
 }
 
 // グローバル変数の初期化
-let currentPage = 'top-page';
+let currentPage = 'guest-count-page'; // 初期ページを人数選択に変更
 let selectedGuestCount = null; // 選択された人数
 let selectedSeat = null; // 選択された座席
 let selectedDate = null;
