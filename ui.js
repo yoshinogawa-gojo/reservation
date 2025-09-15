@@ -617,7 +617,7 @@ function displayCompletionDetails(mainReservation) {
             </div>
             <div class="confirmation-item">
                 <span class="confirmation-label">住所</span>
-                <span class="confirmation-value">${APP_CONFIG.shopInfo?.address || '〒420-0817 静岡県静岡市葵区東静岡１丁目１−５７'}</span>
+                <span class="confirmation-value">${APP_CONFIG.shopInfo?.address || '〒637-0031 奈良県五條市小島町４４９−１'}</span>
             </div>
         </div>
         
