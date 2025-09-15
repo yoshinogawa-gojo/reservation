@@ -27,7 +27,7 @@ const APP_CONFIG = {
     },
     shopInfo: {
         name: 'レストランよしの川',
-        address: '〒420-0817 静岡県静岡市葵区東静岡１丁目１−５７',
+        address: '〒637-0031 奈良県五條市小島町４４９−１',
         phone: null, // 電話予約は受け付けていない
         parkingSpaces: 240
     }
