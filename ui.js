@@ -358,7 +358,7 @@ function selectDate(dateString, clickedElement) {
     displayTimeSlots(dateString);
 }
 
-// 時間スロットの表示（レストラン向け）
+// 時間スロットの表示（レストラン向け・予約件数制限対応）
 async function displayTimeSlots(date) {
     console.log('時間スロット表示開始:', date);
     const timeSlotsContainer = document.getElementById('time-slots-container');
@@ -407,13 +407,27 @@ async function displayTimeSlots(date) {
         
         console.log('✅ 予約可能な日付です');
         
-        // バックエンドから時間スロット情報を取得（フォールバック付き）
+        // バックエンドから時間スロット情報を取得
         let slotInfo = {};
         let availableTimeSlots = [];
         
         try {
             if (typeof getAvailableTimeSlots === 'function') {
                 slotInfo = await getAvailableTimeSlots(date);
+                
+                // 予約満了チェック
+                if (slotInfo.isFull) {
+                    console.log(`❌ ${date}は予約満了 (${slotInfo.reservationCount}/5件)`);
+                    timeSlots.innerHTML = `
+                        <div class="error">
+                            <p>この日の予約は満了しました。</p>
+                            <p>（予約件数: ${slotInfo.reservationCount}/5件）</p>
+                            <p>別の日程をお選びください。</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
                 availableTimeSlots = slotInfo.timeslots || [];
             }
         } catch (error) {
@@ -430,19 +444,17 @@ async function displayTimeSlots(date) {
             }
         }
         
-        // 予約状況を取得（関数が存在する場合）
+        // 予約状況を取得
         if (typeof loadReservations === 'function') {
             try {
                 await loadReservations(date);
             } catch (error) {
                 console.warn('予約状況の取得に失敗:', error);
-                // reservationsがundefinedの場合は空配列に設定
                 if (typeof reservations === 'undefined') {
                     window.reservations = [];
                 }
             }
         } else {
-            // reservationsがundefinedの場合は空配列に設定
             if (typeof reservations === 'undefined') {
                 window.reservations = [];
             }
@@ -452,16 +464,17 @@ async function displayTimeSlots(date) {
         
         const isWeekend = slotInfo.isWeekend !== undefined ? slotInfo.isWeekend : (typeof isWeekendOrHoliday === 'function' ? isWeekendOrHoliday(date) : false);
         
-        // 時間スロットのタイトルを更新
+        // 時間スロットのタイトルを更新（予約件数表示を追加）
         const timeSelectionTitle = document.querySelector('.time-selection-title');
         if (timeSelectionTitle) {
             const dayType = isWeekend ? '土日祝' : '平日';
+            const reservationCountText = slotInfo.reservationCount !== undefined ? ` (予約: ${slotInfo.reservationCount}/5件)` : '';
             let titleText;
             
             if (isWeekend) {
-                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00 / ディナー17:00-20:00）`;
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00 / ディナー17:00-20:00）${reservationCountText}`;
             } else {
-                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00）`;
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00）${reservationCountText}`;
             }
             
             timeSelectionTitle.innerHTML = titleText;
@@ -500,7 +513,8 @@ async function displayTimeSlots(date) {
         });
         
         const dayTypeText = isWeekend ? '土日祝' : '平日';
-        console.log(`${date}の時間スロット表示完了 (${dayTypeText}: ${availableTimeSlots.length}件)`);
+        const countText = slotInfo.reservationCount !== undefined ? ` (予約: ${slotInfo.reservationCount}/5件)` : '';
+        console.log(`${date}の時間スロット表示完了 (${dayTypeText}: ${availableTimeSlots.length}件)${countText}`);
         
     } catch (error) {
         console.error('予約状況の確認に失敗しました:', error);
