@@ -395,6 +395,7 @@ async function displayTimeSlots(date) {
         if (targetDate < minimumDate || targetDate > maximumDate) {
             console.log('❌ 予約期間外です');
             timeSlots.innerHTML = '<div class="error">この日は予約できません。</div>';
+            timeSlotsContainer.style.display = 'none';
             return;
         }
         
@@ -415,14 +416,31 @@ async function displayTimeSlots(date) {
             if (typeof getAvailableTimeSlots === 'function') {
                 slotInfo = await getAvailableTimeSlots(date);
                 
-                // 予約満了チェック
-                if (slotInfo.isFull) {
-                    console.log(`❌ ${date}は予約満了 (${slotInfo.reservationCount}/5件)`);
+                console.log('API レスポンス - slotInfo:', slotInfo);
+                
+                // 予約満了チェック（修正版）
+                if (slotInfo.isFull === true || slotInfo.reservationCount >= 5) {
+                    const reservationCount = slotInfo.reservationCount || 5;
+                    console.log(`❌ ${date}は予約満了 (${reservationCount}/5件)`);
+                    
+                    // 時間スロットのタイトルを更新
+                    const timeSelectionTitle = document.querySelector('.time-selection-title');
+                    if (timeSelectionTitle) {
+                        timeSelectionTitle.innerHTML = `この日の予約は満了しました`;
+                    }
+                    
+                    // 満了メッセージを表示
                     timeSlots.innerHTML = `
-                        <div class="error">
-                            <p>この日の予約は満了しました。</p>
-                            <p>（予約件数: ${slotInfo.reservationCount}/5件）</p>
-                            <p>別の日程をお選びください。</p>
+                        <div class="error" style="text-align: center; padding: 30px 20px;">
+                            <div style="font-size: 48px; margin-bottom: 15px;">❌</div>
+                            <h3 style="color: #dc3545; margin-bottom: 10px; font-size: 18px;">予約満了</h3>
+                            <p style="margin-bottom: 15px; line-height: 1.6;">
+                                この日の予約は上限に達しました。<br>
+                                （予約件数: ${reservationCount}/5件）
+                            </p>
+                            <p style="color: #6c757d; font-size: 14px;">
+                                別の日程をお選びください。
+                            </p>
                         </div>
                     `;
                     return;
@@ -435,7 +453,7 @@ async function displayTimeSlots(date) {
         }
         
         // フォールバック: クライアント側で時間スロットを生成
-        if (availableTimeSlots.length === 0) {
+        if (availableTimeSlots.length === 0 && !slotInfo.isFull) {
             const isWeekend = typeof isWeekendOrHoliday === 'function' ? isWeekendOrHoliday(date) : false;
             if (isWeekend) {
                 availableTimeSlots = ['11:00', '11:30', '12:00', '12:30', '13:00', '13:30', '14:00', '14:30', '17:00', '17:30', '18:00', '18:30', '19:00', '19:30'];
@@ -468,13 +486,20 @@ async function displayTimeSlots(date) {
         const timeSelectionTitle = document.querySelector('.time-selection-title');
         if (timeSelectionTitle) {
             const dayType = isWeekend ? '土日祝' : '平日';
-            const reservationCountText = slotInfo.reservationCount !== undefined ? ` (予約: ${slotInfo.reservationCount}/5件)` : '';
+            const reservationCount = slotInfo.reservationCount !== undefined ? slotInfo.reservationCount : 0;
+            const remainingSlots = Math.max(0, 5 - reservationCount);
+            
             let titleText;
             
             if (isWeekend) {
-                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00 / ディナー17:00-20:00）${reservationCountText}`;
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00 / ディナー17:00-20:00）`;
             } else {
-                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00）${reservationCountText}`;
+                titleText = `時間を選択してください（${dayType}: ランチ11:00-15:00）`;
+            }
+            
+            // 予約件数情報を追加
+            if (reservationCount > 0) {
+                titleText += `<br><span style="color: ${remainingSlots <= 2 ? '#dc3545' : '#28a745'}; font-weight: bold; font-size: 14px;">残り ${remainingSlots} 枠（予約: ${reservationCount}/5件）</span>`;
             }
             
             timeSelectionTitle.innerHTML = titleText;
